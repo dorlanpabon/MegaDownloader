@@ -245,6 +245,7 @@ Public Class AddLinks
                 SelectLinks.Config = Config
                 SelectLinks.Main = Main
                 SelectLinks.oPaquete = oPaquete
+                SelectLinks.Checked = chkStartDownload.Checked
                 SelectLinks.ShowDialog(SelectLinks.Main)
                 'Main.AgregarPaquete(oPaquete, False)
                 'If chkStartDownload.Checked Then Main.StartDownload()

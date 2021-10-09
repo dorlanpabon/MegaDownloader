@@ -25,14 +25,13 @@ Partial Class SelectLinks
         Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Carpeta")
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.btnAgregar = New System.Windows.Forms.Button()
+        Me.Delete_node = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TreeView1
         '
-        Me.TreeView1.CheckBoxes = True
         Me.TreeView1.Location = New System.Drawing.Point(93, 47)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode2.Checked = True
         TreeNode2.Name = "Nodo0"
         TreeNode2.Text = "Carpeta"
         Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
@@ -48,11 +47,21 @@ Partial Class SelectLinks
         Me.btnAgregar.Text = "Agregar links"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
+        'Delete_node
+        '
+        Me.Delete_node.Location = New System.Drawing.Point(399, 381)
+        Me.Delete_node.Name = "Delete_node"
+        Me.Delete_node.Size = New System.Drawing.Size(133, 23)
+        Me.Delete_node.TabIndex = 6
+        Me.Delete_node.Text = "Eliminar Nodo"
+        Me.Delete_node.UseVisualStyleBackColor = True
+        '
         'SelectLinks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Delete_node)
         Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.btnAgregar)
         Me.Name = "SelectLinks"
@@ -63,4 +72,5 @@ Partial Class SelectLinks
 
     Friend WithEvents TreeView1 As TreeView
     Friend WithEvents btnAgregar As Button
+    Friend WithEvents Delete_node As Button
 End Class
