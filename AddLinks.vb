@@ -8,6 +8,13 @@ Public Class AddLinks
     Public HiddenLinks As String = String.Empty
 
     Private Sub AddLinks_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+
+
+        ' Centramos la pantalla
+        ' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right
+        Dim scr = Screen.FromPoint(Me.Location)
+        Me.Location = New Point(CInt((scr.WorkingArea.Right - Me.Width) / 2), CInt((scr.WorkingArea.Bottom - Me.Height) / 2))
+
         Translate()
         'OpcionesPaquete.Visible = False
 
@@ -29,10 +36,6 @@ Public Class AddLinks
 
         chkUnZip_CheckedChanged(Nothing, Nothing)
 
-        ' Centramos la pantalla
-        ' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right
-        Dim scr = Screen.FromPoint(Me.Location)
-        Me.Location = New Point(CInt((scr.WorkingArea.Right - Me.Width) / 2), CInt((scr.WorkingArea.Bottom - Me.Height) / 2))
 
     End Sub
 
@@ -210,7 +213,7 @@ Public Class AddLinks
                         Console.WriteLine(URL.Name)
                         Console.WriteLine(URL.Size)
                         Dim ruta As String = System.IO.Path.Combine(oPaquete.RutaLocal, URL.Path)
-                        System.IO.Directory.CreateDirectory(ruta)
+
 
 
 
@@ -228,6 +231,7 @@ Public Class AddLinks
                             .RutaRelativa = URL.Path
                             .NombreFichero = If(Visible, URLFile, Fichero.HIDDEN_LINK_DESC)
                             .Nombre = URL.Name
+                            .TamanoBytes = URL.Size
                             .FileID = Fichero.ExtraerFileID(URLFile)
                             .FileKey = Fichero.ExtraerFileKey(URLFile)
                             .SetDescargaExtraccionAutomatica(txtPassword.Text) = chkUnZip.Checked

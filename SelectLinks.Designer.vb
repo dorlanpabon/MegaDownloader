@@ -22,25 +22,29 @@ Partial Class SelectLinks
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Carpeta")
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Carpeta")
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SelectLinks))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.Delete_node = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'TreeView1
         '
-        Me.TreeView1.Location = New System.Drawing.Point(93, 47)
+        Me.TreeView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TreeView1.ForeColor = System.Drawing.SystemColors.WindowFrame
+        Me.TreeView1.Location = New System.Drawing.Point(66, 65)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode2.Name = "Nodo0"
-        TreeNode2.Text = "Carpeta"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
-        Me.TreeView1.Size = New System.Drawing.Size(593, 300)
+        TreeNode1.Name = "Nodo0"
+        TreeNode1.Text = "Carpeta"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
+        Me.TreeView1.Size = New System.Drawing.Size(664, 300)
         Me.TreeView1.TabIndex = 5
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(574, 381)
+        Me.btnAgregar.Location = New System.Drawing.Point(597, 402)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(133, 23)
         Me.btnAgregar.TabIndex = 4
@@ -49,28 +53,45 @@ Partial Class SelectLinks
         '
         'Delete_node
         '
-        Me.Delete_node.Location = New System.Drawing.Point(399, 381)
+        Me.Delete_node.Location = New System.Drawing.Point(439, 402)
         Me.Delete_node.Name = "Delete_node"
         Me.Delete_node.Size = New System.Drawing.Size(133, 23)
         Me.Delete_node.TabIndex = 6
         Me.Delete_node.Text = "Eliminar Nodo"
         Me.Delete_node.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(9, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(62, 20)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(176, 24)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "Carpetas y Archivos"
+        '
         'SelectLinks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Delete_node)
         Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.btnAgregar)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "SelectLinks"
-        Me.Text = "SelectLinks"
+        Me.Text = "Seleccionar Archivos"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents TreeView1 As TreeView
     Friend WithEvents btnAgregar As Button
     Friend WithEvents Delete_node As Button
+    Friend WithEvents Label1 As Label
 End Class

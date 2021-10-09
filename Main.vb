@@ -178,6 +178,11 @@ Public Class Main
 
         My.MyApplication.Main_Form = Me
 
+        ' Centramos la pantalla
+        ' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right
+        Dim scr = Screen.FromPoint(Me.Location)
+        Me.Location = New Point(CInt((scr.WorkingArea.Right - Me.Width) / 2), CInt((scr.WorkingArea.Bottom - Me.Height) / 2))
+
         'Language.SaveTranslationReport()
 
         Log.WriteError("Starting Megadownloader")
@@ -318,12 +323,6 @@ Public Class Main
             Me.StartPosition = FormStartPosition.CenterScreen
             Main_Resize(Nothing, Nothing)
         End If
-
-        ' Centramos la pantalla
-        ' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right
-        Dim scr = Screen.FromPoint(Me.Location)
-        Me.Location = New Point(CInt((scr.WorkingArea.Right - Me.Width) / 2), CInt((scr.WorkingArea.Bottom - Me.Height) / 2))
-
 
         If Config.ConfigUI.EstadoLista IsNot Nothing Then
             Log.WriteDebug("Restoring columns")
@@ -962,7 +961,7 @@ Public Class Main
 
     End Function
 
-    Private Function PintarTamano(numBytes As Decimal) As String
+    Public Function PintarTamano(numBytes As Decimal) As String
         Dim Dato As String = "B"
         If numBytes > 1024 Then
             Dato = "KB"

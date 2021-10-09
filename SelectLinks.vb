@@ -9,18 +9,24 @@
     Public Property Checked As Boolean
 
     Private Sub SelectLinks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Centramos la pantalla
+        ' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right
+        Dim scr = Screen.FromPoint(Me.Location)
+        Me.Location = New Point(CInt((scr.WorkingArea.Right - Me.Width) / 2), CInt((scr.WorkingArea.Bottom - Me.Height) / 2))
+
         TreeView1.Nodes.Clear()
 
         Dim paths = New List(Of String) From {}
         ficheros = oPaquete.ListaFicheros
         ficherosBackup = oPaquete.ListaFicheros.ToList
         root = oPaquete.Nombre
+
         For Each fic In ficheros
             Console.WriteLine(fic.RutaLocal)
             If fic.RutaRelativa Is "" Then
-                paths.Add(root + "\" + fic.Nombre)
+                paths.Add(root + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")")
             Else
-                paths.Add(root + "\" + fic.RutaRelativa + "\" + fic.Nombre)
+                paths.Add(root + "\" + fic.RutaRelativa + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")")
             End If
         Next
         'father.Nodes.Add(fic.RutaRelativa + "\" + fic.Nombre).Checked = True
@@ -58,36 +64,41 @@
     End Sub
 
     Private Sub Delete_node_Click(sender As Object, e As EventArgs) Handles Delete_node.Click
-        Dim node = TreeView1.SelectedNode.FullPath
-        Dim nodes = New List(Of String) From {}
+        Try
+            Dim node = TreeView1.SelectedNode.FullPath
+            Dim nodes = New List(Of String) From {}
 
-        GetChildNodes(TreeView1.SelectedNode, nodes)
+            GetChildNodes(TreeView1.SelectedNode, nodes)
 
 
-        For i = ficherosBackup.Count - 1 To 0 Step -1
-            Dim del = False
-            For f = nodes.Count - 1 To 0 Step -1
-                Console.WriteLine("Node |" + nodes(f))
-                Console.WriteLine("pai" + CStr(i) + " ")
-                Console.WriteLine("Fichero  |" + root + "\" + ficherosBackup(i).RutaRelativa + "\" + ficherosBackup(i).Nombre)
-                If root + "\" + ficherosBackup(i).RutaRelativa + "\" + ficherosBackup(i).Nombre = nodes(f) And del = False Then
-                    Console.WriteLine("if 1")
-                    del = True
-                    ficheros.RemoveAt(i)
-                ElseIf root + "\" + ficherosBackup(i).RutaRelativa = nodes(f) And del = False Then
-                    Console.WriteLine("if 2")
-                    del = True
-                    ficheros.RemoveAt(i)
-                ElseIf root + "\" + ficherosBackup(i).Nombre = nodes(f) And del = False Then
-                    Console.WriteLine("if 3")
-                    del = True
-                    ficheros.RemoveAt(i)
-                End If
+            For i = ficherosBackup.Count - 1 To 0 Step -1
+                Dim del = False
+                For f = nodes.Count - 1 To 0 Step -1
+                    Console.WriteLine("Node |" + nodes(f))
+                    Console.WriteLine("pai" + CStr(i) + " ")
+                    Console.WriteLine("Fichero  |" + root + "\" + ficherosBackup(i).RutaRelativa + "\" + ficherosBackup(i).Nombre)
+                    If root + "\" + ficherosBackup(i).RutaRelativa + "\" + ficherosBackup(i).Nombre = nodes(f) And del = False Then
+                        Console.WriteLine("if 1")
+                        del = True
+                        ficheros.RemoveAt(i)
+                    ElseIf root + "\" + ficherosBackup(i).RutaRelativa = nodes(f) And del = False Then
+                        Console.WriteLine("if 2")
+                        del = True
+                        ficheros.RemoveAt(i)
+                    ElseIf root + "\" + ficherosBackup(i).Nombre = nodes(f) And del = False Then
+                        Console.WriteLine("if 3")
+                        del = True
+                        ficheros.RemoveAt(i)
+                    End If
+                Next
+
             Next
+            Console.WriteLine(ficheros.Count)
+            TreeView1.SelectedNode.Remove()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
 
-        Next
-        Console.WriteLine(ficheros.Count)
-        TreeView1.SelectedNode.Remove()
     End Sub
     Private Sub GetChildNodes(tnode As TreeNode, ByVal nodes As List(Of String))
 
@@ -97,6 +108,7 @@
             'call the subroutine for each one of them
             'If you only want to display one level deep, then comment out the
             'IF statement.
+
             nodes.Add(node.FullPath)
 
             If tnode.Nodes.Count > 0 Then GetChildNodes(node, nodes)
@@ -106,8 +118,18 @@
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        oPaquete.ListaFicheros = ficheros
-        Main.AgregarPaquete(oPaquete, False)
-        If Checked Then Main.StartDownload()
+        Try
+            oPaquete.ListaFicheros = ficheros
+            For Each fic In oPaquete.ListaFicheros
+                System.IO.Directory.CreateDirectory(fic.RutaLocal)
+            Next
+            Me.Close()
+            Me.Dispose()
+            Main.AgregarPaquete(oPaquete, False)
+            If Checked Then Main.StartDownload()
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+
     End Sub
 End Class
