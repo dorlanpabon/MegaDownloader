@@ -74,32 +74,68 @@ Public Class SelectLinks
             GetChildNodes(TreeView1.SelectedNode, nodes)
 
 
-            For i = ficherosBackup.Count - 1 To 0 Step -1
-                Dim del = False
-                For f = nodes.Count - 1 To 0 Step -1
-                    Dim ex As Regex = New Regex("(?<nombre>.*.\s.*-\(){1}")
-                    Dim mat = ex.Match(nodes(f))
-                    Dim nombre = mat.Groups("nombre").Value.Trim("("c, "-"c, " "c)
-                    Console.WriteLine("math" + nombre)
-                    Console.WriteLine("Node |" + nodes(f))
-                    Console.WriteLine("pai" + CStr(i) + " ")
-                    Console.WriteLine("Fichero  |" + root + "\" + ficherosBackup(i).RutaRelativa + "\" + ficherosBackup(i).Nombre)
-                    If root + "\" + ficherosBackup(i).RutaRelativa + "\" + ficherosBackup(i).Nombre = nombre And del = False Then
-                        Console.WriteLine("if 1")
-                        del = True
-                        ficheros.RemoveAt(i)
-                    ElseIf root + "\" + ficherosBackup(i).RutaRelativa = nombre And del = False Then
-                        Console.WriteLine("if 2")
-                        del = True
-                        ficheros.RemoveAt(i)
-                    ElseIf root + "\" + ficherosBackup(i).Nombre = nombre And del = False Then
-                        Console.WriteLine("if 3")
-                        del = True
-                        ficheros.RemoveAt(i)
-                    End If
-                Next
+            For f = nodes.Count - 1 To 0 Step -1
+                Dim ex As Regex = New Regex("(?<nombre>.*.\s.*-\(){1}")
+                Dim mat = ex.Match(nodes(f))
+                Dim nombre = mat.Groups("nombre").Value.Trim("("c, "-"c, " "c)
 
+                If nombre Is "" Then
+                    nombre = nodes(f)
+                End If
+                Console.WriteLine("antes")
+                Console.WriteLine(nodes(f))
+                Dim nomr = nombre.Replace(root + "\", "")
+                Dim ruta = ""
+                Dim nom = ""
+                nom = nombre.Split("\"c).Last
+                ruta = nomr.Replace("\" + nom, "")
+                If nomr = nom Then
+                    ruta = ""
+                End If
+
+
+                Dim i = ficheros.FindIndex(Function(p) p.RutaRelativa = ruta And p.Nombre = nom)
+                Console.WriteLine("la i" + CStr(i))
+                Console.WriteLine(nomr)
+                Console.WriteLine(nom)
+                If i > -1 Then
+                    Console.WriteLine("Ingreso a if i")
+                    ficheros.RemoveAt(i)
+                Else
+                    RemoveNodes(nomr)
+                End If
             Next
+            'For i = ficheros.Count - 1 To 0 Step -1
+            '    Dim del = False
+            '    For f = nodes.Count - 1 To 0 Step -1
+            '        Dim ex As Regex = New Regex("(?<nombre>.*.\s.*-\(){1}")
+            '        Dim mat = ex.Match(nodes(f))
+            '        Dim nombre = mat.Groups("nombre").Value.Trim("("c, "-"c, " "c)
+            '        Console.WriteLine("math" + nombre)
+            '        Console.WriteLine("Node |" + nodes(f))
+            '        Console.WriteLine("pai" + CStr(i) + " ")
+            '        Console.WriteLine("Fichero  |" + root + "\" + ficheros(i).RutaRelativa + "\" + ficheros(i).Nombre)
+
+            '        If nombre Is Nothing Then
+            '            nombre = nodes(f)
+            '        End If
+
+            '        If root + "\" + ficheros(i).RutaRelativa + "\" + ficheros(i).Nombre = nombre And del = False Then
+            '            Console.WriteLine("if 1")
+            '            del = True
+            '            ficheros.RemoveAt(i)
+            '        ElseIf root + "\" + ficheros(i).RutaRelativa = nombre And del = False Then
+            '            Console.WriteLine("if 2")
+            '            del = True
+            '            ficheros.RemoveAt(i)
+            '        ElseIf root + "\" + ficheros(i).Nombre = nombre And del = False Then
+            '            Console.WriteLine("if 3")
+            '            del = True
+            '            ficheros.RemoveAt(i)
+            '        End If
+            '    Next
+
+            'Next
             Console.WriteLine(ficheros.Count)
             TreeView1.SelectedNode.Remove()
         Catch ex As Exception
@@ -117,10 +153,23 @@ Public Class SelectLinks
             'IF statement.
 
             nodes.Add(node.FullPath)
-
+            Console.WriteLine(node.FullPath)
             If tnode.Nodes.Count > 0 Then GetChildNodes(node, nodes)
 
         Next
+
+    End Sub
+    Private Sub RemoveNodes(nombre As String)
+
+        Dim j = ficheros.FindIndex(Function(p) p.RutaRelativa = nombre)
+
+        Console.WriteLine("la j" + CStr(j))
+        Console.WriteLine(nombre)
+        If j > -1 Then
+            Console.WriteLine("Ingreso a if j")
+            ficheros.RemoveAt(j)
+            RemoveNodes(nombre)
+        End If
 
     End Sub
 
@@ -139,6 +188,10 @@ Public Class SelectLinks
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
+
+    End Sub
+
+    Private Sub Delete_all_nodes_Click(sender As Object, e As EventArgs) Handles Delete_all_nodes.Click
 
     End Sub
 End Class

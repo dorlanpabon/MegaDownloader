@@ -477,38 +477,38 @@ Public Class Configuracion
 		Me._ELCAccountList = New Generic.List(Of ELCAccountHelper.Account)
 		Me.ConfigUI.ConfiguracionDefectoVacia()
 	End Sub
-	
-	Public Shared Sub RegisterInStartup(isChecked As Boolean)
-		Try 
 
-			Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
-			If registryKey Is Nothing and isChecked Then
-	    		registryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run")
-	    	End If
-			If isChecked Then
-				registryKey.SetValue("MegaDownloader", """" & Application.ExecutablePath & """ -silent")
-			Else
-				registryKey.DeleteValue("MegaDownloader", False)
-			End If
-			
-		Catch ex As UnauthorizedAccessException
-            Log.WriteError("SECURITY ERROR: Not enough privileges to access the registry (CU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run). Execute the application with administrator privileges (at least one time) in order to access the registry. Please note that if you move the application, you will have to execute it again with administrator privileges.")
-          
-        Catch ex As Security.SecurityException
-            Log.WriteError("SECURITY ERROR: Not enough privileges to access the registry (CU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run). Execute the application with administrator privileges (at least one time) in order to access the registry. Please note that if you move the application, you will have to execute it again with administrator privileges.")
-          
-        Catch ex As Exception
-            Log.WriteError("Error accessing the registry (CU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run). Error: " & ex.ToString)
-     
-        End Try
-	End Sub
-	
-	#End Region
-	
-	
-	#Region "Métodos privados"
-	
-	
+	'Public Shared Sub RegisterInStartup(isChecked As Boolean)
+	'	Try 
+
+	'		Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
+	'		If registryKey Is Nothing and isChecked Then
+	'    		registryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run")
+	'    	End If
+	'		If isChecked Then
+	'			registryKey.SetValue("MegaDownloader", """" & Application.ExecutablePath & """ -silent")
+	'		Else
+	'			registryKey.DeleteValue("MegaDownloader", False)
+	'		End If
+
+	'	Catch ex As UnauthorizedAccessException
+	'           Log.WriteError("SECURITY ERROR: Not enough privileges to access the registry (CU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run). Execute the application with administrator privileges (at least one time) in order to access the registry. Please note that if you move the application, you will have to execute it again with administrator privileges.")
+
+	'       Catch ex As Security.SecurityException
+	'           Log.WriteError("SECURITY ERROR: Not enough privileges to access the registry (CU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run). Execute the application with administrator privileges (at least one time) in order to access the registry. Please note that if you move the application, you will have to execute it again with administrator privileges.")
+
+	'       Catch ex As Exception
+	'           Log.WriteError("Error accessing the registry (CU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run). Error: " & ex.ToString)
+
+	'       End Try
+	'End Sub
+
+#End Region
+
+
+#Region "Métodos privados"
+
+
 	Private Function LeerNodo(ByRef DocumentoXML As XmlDocument, ByRef Path As String, ByVal ValorDefecto As String) As String
 		Dim nodo As XmlNode = DocumentoXML.DocumentElement.SelectSingleNode(Path)
 		If nodo Is Nothing Then

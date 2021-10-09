@@ -256,7 +256,7 @@ Public Class Main
 
         SharpCompress.PriorityExtension.Priority.DecompressionPriority = Config.PrioridadDescompresion
 
-        Conexion.PingMega()
+        'Conexion.PingMega()
 
         Me.NumeroConexionesMaxima = Config.MaxConexionesGuardadas
 
@@ -290,7 +290,7 @@ Public Class Main
         'End If
 
         If Config.IniciarConWindows Then
-            Configuracion.RegisterInStartup(True) ' Actualizamos con la ruta actual (por si hemos movido el ejecutable de sitio)
+            'Configuracion.RegisterInStartup(True) ' Actualizamos con la ruta actual (por si hemos movido el ejecutable de sitio)
         End If
 
         If Not Silent Then
@@ -299,7 +299,7 @@ Public Class Main
         End If
 
         ' Autodetect mega:// parameters from browser
-        MegaURIProtocol.RegisterUrlProtocol()
+        'MegaURIProtocol.RegisterUrlProtocol()
 
 
         If Config.ComenzarDescargando Then
@@ -552,7 +552,7 @@ Public Class Main
             Config.VersionConfig = VersionActual.ToString(New Globalization.CultureInfo("en-GB"))
 
             ' Hitcount new user of this version
-            Conexion.PingNewVersion()
+            'Conexion.PingNewVersion()
         End If
     End Sub
 
@@ -573,7 +573,7 @@ Public Class Main
                 Return False
             Else
                 ' Hitcount new user app
-                Conexion.PingNewUser()
+                'Conexion.PingNewUser()
             End If
         End If
         Config.CondicionesAceptadas = True
@@ -1061,7 +1061,7 @@ Public Class Main
                     If Config.CheckUpdates Then
 
                         Mutex.NumeroConexionesMaxima.WaitOne()
-                        Updater.ComprobarVersionMegadownloader(UrlNuevaVersionMegadownloader, VersionNuevaVersionMegadownloader)
+                        'Updater.ComprobarVersionMegadownloader(UrlNuevaVersionMegadownloader, VersionNuevaVersionMegadownloader)
                         Mutex.NumeroConexionesMaxima.ReleaseMutex()
                         If Not String.IsNullOrEmpty(UrlNuevaVersionMegadownloader) Then
                             ActivarUpdateButton()

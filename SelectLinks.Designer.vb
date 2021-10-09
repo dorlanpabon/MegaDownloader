@@ -28,6 +28,7 @@ Partial Class SelectLinks
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.Delete_node = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Delete_all_nodes = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TreeView1
@@ -73,11 +74,21 @@ Partial Class SelectLinks
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Carpetas y Archivos"
         '
+        'Delete_all_nodes
+        '
+        Me.Delete_all_nodes.Location = New System.Drawing.Point(279, 402)
+        Me.Delete_all_nodes.Name = "Delete_all_nodes"
+        Me.Delete_all_nodes.Size = New System.Drawing.Size(133, 23)
+        Me.Delete_all_nodes.TabIndex = 8
+        Me.Delete_all_nodes.Text = "Eliminar Demas Nodos"
+        Me.Delete_all_nodes.UseVisualStyleBackColor = True
+        '
         'SelectLinks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Delete_all_nodes)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Delete_node)
         Me.Controls.Add(Me.TreeView1)
@@ -94,4 +105,5 @@ Partial Class SelectLinks
     Friend WithEvents btnAgregar As Button
     Friend WithEvents Delete_node As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents Delete_all_nodes As Button
 End Class

@@ -268,14 +268,14 @@ Public Class Conexion
 
     Private Const keyUrl As String = "81379874BC2815E6825E98F986F98410EFC68D6DABC6EF8B54968C75387551F2"
 
-    Public Shared Function GetUpdateCheckURL() As String
-        Dim URL As String = InternalConfiguration.ObtenerValueFromInternalConfig("URL_UPDATE_CHECK")
-        URL = Criptografia.AES_DecryptString(URL, keyUrl)
+    'Public Shared Function GetUpdateCheckURL() As String
+    '    Dim URL As String = InternalConfiguration.ObtenerValueFromInternalConfig("URL_UPDATE_CHECK")
+    '    URL = Criptografia.AES_DecryptString(URL, keyUrl)
 
-        'URL = URL.Replace("%VERSION%", InternalConfiguration.ObtenerValueFromInternalConfig("VERSION_UPDATE"))
-        URL = URL.Replace("%D%", Date.UtcNow.ToString("yyyyMMddHH"))
-        Return URL
-    End Function
+    '    'URL = URL.Replace("%VERSION%", InternalConfiguration.ObtenerValueFromInternalConfig("VERSION_UPDATE"))
+    '    URL = URL.Replace("%D%", Date.UtcNow.ToString("yyyyMMddHH"))
+    '    Return URL
+    'End Function
     'Public Shared Function GetAppID() As String
     '    Dim Code As String = InternalConfiguration.ObtenerValueFromInternalConfig("APP_ID")
     '    Code = Criptografia.AES_DecryptString(Code, keyUrl)
@@ -451,73 +451,73 @@ Public Class Conexion
     ''' en segundo plano así el usuario no nota ese tiempo de "arranque en frío"
     ''' </summary>
     ''' <remarks></remarks>
-    Public Shared Sub PingMega()
-        bgPing = New BackgroundWorker
-        bgPing.WorkerReportsProgress = False
-        bgPing.WorkerSupportsCancellation = False
-        bgPing.RunWorkerAsync()
-    End Sub
+    'Public Shared Sub PingMega()
+    '    bgPing = New BackgroundWorker
+    '    bgPing.WorkerReportsProgress = False
+    '    bgPing.WorkerSupportsCancellation = False
+    '    bgPing.RunWorkerAsync()
+    'End Sub
 
-    Public Shared Sub PingNewUser()
-        bgPingNewUser = New BackgroundWorker
-        bgPingNewUser.WorkerReportsProgress = False
-        bgPingNewUser.WorkerSupportsCancellation = False
-        bgPingNewUser.RunWorkerAsync()
-    End Sub
+    'Public Shared Sub PingNewUser()
+    '    bgPingNewUser = New BackgroundWorker
+    '    bgPingNewUser.WorkerReportsProgress = False
+    '    bgPingNewUser.WorkerSupportsCancellation = False
+    '    bgPingNewUser.RunWorkerAsync()
+    'End Sub
 
-    Public Shared Sub PingNewVersion()
-        bgPingNewVersion = New BackgroundWorker
-        bgPingNewVersion.WorkerReportsProgress = False
-        bgPingNewVersion.WorkerSupportsCancellation = False
-        bgPingNewVersion.RunWorkerAsync()
-    End Sub
+    'Public Shared Sub PingNewVersion()
+    '    bgPingNewVersion = New BackgroundWorker
+    '    bgPingNewVersion.WorkerReportsProgress = False
+    '    bgPingNewVersion.WorkerSupportsCancellation = False
+    '    bgPingNewVersion.RunWorkerAsync()
+    'End Sub
 
-    Private Shared WithEvents bgPing As BackgroundWorker
-    Private Shared WithEvents bgPingNewVersion As BackgroundWorker
-    Private Shared WithEvents bgPingNewUser As BackgroundWorker
+    'Private Shared WithEvents bgPing As BackgroundWorker
+    'Private Shared WithEvents bgPingNewVersion As BackgroundWorker
+    'Private Shared WithEvents bgPingNewUser As BackgroundWorker
 
-    Private Shared Sub bgPing_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgPing.DoWork
-        Try
-            Log.WriteDebug("Starting ping...")
-            Dim URL As String = InternalConfiguration.ObtenerValueFromInternalConfig("URL_PING")
-            URL = Criptografia.AES_DecryptString(URL, keyUrl)
+    'Private Shared Sub bgPing_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgPing.DoWork
+    '    Try
+    '        Log.WriteDebug("Starting ping...")
+    '        Dim URL As String = InternalConfiguration.ObtenerValueFromInternalConfig("URL_PING")
+    '        URL = Criptografia.AES_DecryptString(URL, keyUrl)
 
-            Dim Resultado As Respuesta = LeerURL(URL)
-            Log.WriteDebug("Ping finished")
-        Catch ex As Exception
-            ' No nos interesa lo que haga...
-        End Try
-    End Sub
+    '        Dim Resultado As Respuesta = LeerURL(URL)
+    '        Log.WriteDebug("Ping finished")
+    '    Catch ex As Exception
+    '        ' No nos interesa lo que haga...
+    '    End Try
+    'End Sub
 
-    Private Shared Sub bgPingNewVersion_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgPingNewVersion.DoWork
-        Try
-            Log.WriteDebug("Starting ping new version...")
-            Dim URL As String = InternalConfiguration.ObtenerValueFromInternalConfig("URL_NEW_VERSION")
-            Dim Resultado As Respuesta = LeerURL(URL, Nothing, PingUserAgent, PingReferer)
-            Log.WriteDebug("Ping finished")
-        Catch ex As Exception
-            ' No nos interesa lo que haga...
-        End Try
-    End Sub
+    'Private Shared Sub bgPingNewVersion_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgPingNewVersion.DoWork
+    '    Try
+    '        Log.WriteDebug("Starting ping new version...")
+    '        Dim URL As String = InternalConfiguration.ObtenerValueFromInternalConfig("URL_NEW_VERSION")
+    '        Dim Resultado As Respuesta = LeerURL(URL, Nothing, PingUserAgent, PingReferer)
+    '        Log.WriteDebug("Ping finished")
+    '    Catch ex As Exception
+    '        ' No nos interesa lo que haga...
+    '    End Try
+    'End Sub
 
-    Private Shared Sub bgPingNewUser_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgPingNewUser.DoWork
-        Try
-            Log.WriteDebug("Starting ping new user...")
-            Dim URL As String = InternalConfiguration.ObtenerValueFromInternalConfig("URL_NEW_USER")
-            Dim Resultado As Respuesta = LeerURL(URL, Nothing, PingUserAgent, PingReferer)
-            Log.WriteDebug("Ping finished")
-        Catch ex As Exception
-            ' No nos interesa lo que haga...
-        End Try
-    End Sub
+    'Private Shared Sub bgPingNewUser_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgPingNewUser.DoWork
+    '    Try
+    '        Log.WriteDebug("starting ping new user...")
+    '        Dim url As String = InternalConfiguration.ObtenerValueFromInternalConfig("url_new_user")
+    '        Dim resultado As Respuesta = LeerURL(url, Nothing, PingUserAgent, PingReferer)
+    '        Log.WriteDebug("ping finished")
+    '    Catch ex As Exception
+    '        ' No nos interesa lo que haga...
+    '    End Try
+    'End Sub
 
 
-    Private Shared Function PingUserAgent() As String
-        Return "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)" ' IE 10
-    End Function
-    Private Shared Function PingReferer() As String
-        Return "http://megadownloaderapp.blogspot.com"
-    End Function
+    'Private Shared Function PingUserAgent() As String
+    '    Return "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)" ' IE 10
+    'End Function
+    'Private Shared Function PingReferer() As String
+    '    Return "http://megadownloaderapp.blogspot.com"
+    'End Function
 #End Region
 
 

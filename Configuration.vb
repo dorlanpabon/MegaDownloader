@@ -50,18 +50,18 @@ Public Class Configuration
 
         txtVLCPath.Text = Config.VLCPath
         If String.IsNullOrEmpty(Config.VLCPath) Then
-            Try
-                Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\VideoLan\VLC", False)
-                If registryKey Is Nothing Then
-                    registryKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\Wow6432Node\VideoLan\VLC", False)
-                End If
-                If registryKey IsNot Nothing AndAlso registryKey.GetValue("InstallDir") IsNot Nothing Then
-                    Dim VLCInstallDir As Object = registryKey.GetValue("InstallDir")
-                    txtVLCPath.Text = CStr(VLCInstallDir)
-                End If
-            Catch ex As Security.SecurityException
-                Log.WriteError("SECURITY ERROR: Not enough privileges to access the registry. Can't read VLC path.")
-            End Try
+            'Try
+            '    Dim registryKey As Microsoft.Win32.RegistryKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\VideoLan\VLC", False)
+            '    If registryKey Is Nothing Then
+            '        registryKey = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\Wow6432Node\VideoLan\VLC", False)
+            '    End If
+            '    If registryKey IsNot Nothing AndAlso registryKey.GetValue("InstallDir") IsNot Nothing Then
+            '        Dim VLCInstallDir As Object = registryKey.GetValue("InstallDir")
+            '        txtVLCPath.Text = CStr(VLCInstallDir)
+            '    End If
+            'Catch ex As Security.SecurityException
+            '    Log.WriteError("SECURITY ERROR: Not enough privileges to access the registry. Can't read VLC path.")
+            'End Try
         End If
 
         chkAnalisisPortapapeles.Checked = Config.AnalizarPortapapeles
@@ -432,7 +432,7 @@ Public Class Configuration
         Config.GuardarXML(True)
 
         Conexion.SetProxy(Config)
-        Configuracion.RegisterInStartup(Config.IniciarConWindows)
+        'Configuracion.RegisterInStartup(Config.IniciarConWindows)
 
         ThrottledStreamController.GetController.SetMaxGlobalSpeed(Config.LimiteVelocidadKBs)
 

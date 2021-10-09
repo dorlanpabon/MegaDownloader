@@ -9,52 +9,52 @@ Public Class Updater
         MSD ' Mega Search Desktop - installer
     End Enum
 
-    Public Shared Sub ComprobarVersionMegadownloader(ByRef UrlNuevaVersion As String, ByRef Version As String)
+    'Public Shared Sub ComprobarVersionMegadownloader(ByRef UrlNuevaVersion As String, ByRef Version As String)
 
-        Dim URL As String = Conexion.GetUpdateCheckURL()
-        If String.IsNullOrEmpty(URL) Then Exit Sub
+    '    Dim URL As String = Conexion.GetUpdateCheckURL()
+    '    If String.IsNullOrEmpty(URL) Then Exit Sub
 
-        Dim Resultado As Conexion.Respuesta = Conexion.LeerURL(URL)
-        If Resultado.Excepcion Is Nothing Then
-            Dim XML As New XmlDocument
-            Try
-                XML.LoadXml(Resultado.Mensaje)
-            Catch ex As Exception
-                Log.WriteError("Error loading the version check XML: " & ex.ToString)
-                Exit Sub
-            End Try
-            Dim UltimaVersion As Double = 0
-            Dim VersionActual As Double = 0
+    '    Dim Resultado As Conexion.Respuesta = Conexion.LeerURL(URL)
+    '    If Resultado.Excepcion Is Nothing Then
+    '        Dim XML As New XmlDocument
+    '        Try
+    '            XML.LoadXml(Resultado.Mensaje)
+    '        Catch ex As Exception
+    '            Log.WriteError("Error loading the version check XML: " & ex.ToString)
+    '            Exit Sub
+    '        End Try
+    '        Dim UltimaVersion As Double = 0
+    '        Dim VersionActual As Double = 0
 
-            Dim ultimaVersionStr As String = LeerNodo(XML, "Version", "")
-
-
-            If Double.TryParse(ultimaVersionStr, Globalization.NumberStyles.Number, New Globalization.CultureInfo("en-GB"), UltimaVersion) And _
-               Double.TryParse(InternalConfiguration.ObtenerValueFromInternalConfig("VERSION_UPDATE"), Globalization.NumberStyles.Number, New Globalization.CultureInfo("en-GB"), VersionActual) Then
-                If UltimaVersion > VersionActual Then
+    '        Dim ultimaVersionStr As String = LeerNodo(XML, "Version", "")
 
 
-                    Dim NodeToCheck As String = "Link"
-                    Select Case GetVersion()
-                        Case Updater.Version.MSD
-                            NodeToCheck = "LinkMSD"
-                        Case Updater.Version.Installer
-                            NodeToCheck = "LinkInstaller"
-                        Case Else
-                            NodeToCheck = "Link"
-                    End Select
+    '        If Double.TryParse(ultimaVersionStr, Globalization.NumberStyles.Number, New Globalization.CultureInfo("en-GB"), UltimaVersion) And _
+    '           Double.TryParse(InternalConfiguration.ObtenerValueFromInternalConfig("VERSION_UPDATE"), Globalization.NumberStyles.Number, New Globalization.CultureInfo("en-GB"), VersionActual) Then
+    '            If UltimaVersion > VersionActual Then
 
-                    UrlNuevaVersion = LeerNodo(XML, NodeToCheck, "")
-                    If String.IsNullOrEmpty(UrlNuevaVersion) Then
-                        UrlNuevaVersion = LeerNodo(XML, "Link", "")
-                    End If
 
-                    Version = LeerNodo(XML, "Version", "")
-                    Log.WriteInfo("There is a new version of MegaDownloader: " & Version & " - " & UrlNuevaVersion)
-                End If
-            End If
-        End If
-    End Sub
+    '                Dim NodeToCheck As String = "Link"
+    '                Select Case GetVersion()
+    '                    Case Updater.Version.MSD
+    '                        NodeToCheck = "LinkMSD"
+    '                    Case Updater.Version.Installer
+    '                        NodeToCheck = "LinkInstaller"
+    '                    Case Else
+    '                        NodeToCheck = "Link"
+    '                End Select
+
+    '                UrlNuevaVersion = LeerNodo(XML, NodeToCheck, "")
+    '                If String.IsNullOrEmpty(UrlNuevaVersion) Then
+    '                    UrlNuevaVersion = LeerNodo(XML, "Link", "")
+    '                End If
+
+    '                Version = LeerNodo(XML, "Version", "")
+    '                Log.WriteInfo("There is a new version of MegaDownloader: " & Version & " - " & UrlNuevaVersion)
+    '            End If
+    '        End If
+    '    End If
+    'End Sub
 
     Private Shared Function GetVersion() As Version
 #If MSD Then
