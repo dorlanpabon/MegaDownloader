@@ -205,11 +205,13 @@ Public Class AddLinks
 
                     .SetDescargaExtraccionAutomatica(txtPassword.Text) = chkUnZip.Checked
                     For Each URL In URLs2
-
+                        Console.WriteLine(URL.URL)
+                        Console.WriteLine(URL.Path)
+                        Console.WriteLine(URL.Name)
+                        Console.WriteLine(URL.Size)
                         Dim ruta As String = System.IO.Path.Combine(oPaquete.RutaLocal, URL.Path)
                         System.IO.Directory.CreateDirectory(ruta)
 
-                        Console.WriteLine(URL.URL)
 
 
                         Dim URLFile As String = URL.URL

@@ -97,9 +97,8 @@
                     Dim ex As New System.Text.RegularExpressions.Regex(Conexion.patternGetFileName)
                     If Not String.IsNullOrEmpty(FileInfoDec) AndAlso ex.IsMatch(FileInfoDec) Then
                         Dim m As System.Text.RegularExpressions.Match = ex.Match(FileInfoDec)
-                        FileInfoDec = m.Groups("FileName").Value
-                        Console.WriteLine(FileInfoDec)
-
+                        Dim FileName = m.Groups("FileName").Value
+                        Dim FilseSize = fileN.s
                         '' Ya tenemos el FileID y el FileKey
                         'Dim FileID As String = "megafolder?" & FolderID & "?" & fileN.h
                         'Dim NuevoLink As String = URLExtractor.GenerateEncodedURILink(FileID, FileKey, False, False)
@@ -108,11 +107,11 @@
                         ' 25/1/15 Formato #N!
                         If FromENCLink Then
                             Dim NuevoLink As String = URLExtractor.GenerateEncodedURILink("N?" & fileN.h, FileKey & "=###n=" & FolderID, False, False)
-                            Results.Add(New URLProcessor.FileURL(NuevoLink, path))
+                            Results.Add(New URLProcessor.FileURL(NuevoLink, path, FileName, FilseSize))
                         Else
 
                             Dim NuevoLink As String = String.Format("http://mega.co.nz/#N!{0}!{1}=###n={2}", fileN.h, FileKey, FolderID)
-                            Results.Add(New URLProcessor.FileURL(NuevoLink, path))
+                            Results.Add(New URLProcessor.FileURL(NuevoLink, path, FileName, FilseSize))
                         End If
 
                     Else
@@ -173,7 +172,6 @@
                 If Not String.IsNullOrEmpty(FolderName) AndAlso ex.IsMatch(FolderName) Then
                     Dim m As System.Text.RegularExpressions.Match = ex.Match(FolderName)
                     FolderName = m.Groups("FileName").Value
-                    Console.WriteLine(FolderName)
                 Else
                     Continue For
                 End If
@@ -205,6 +203,7 @@
                     If Not String.IsNullOrEmpty(FileInfoDec) AndAlso ex.IsMatch(FileInfoDec) Then
                         Dim m As System.Text.RegularExpressions.Match = ex.Match(FileInfoDec)
                         FileInfoDec = m.Groups("FileName").Value
+                        Dim FileSize = fileN.s
 
 
                         '' Ya tenemos el FileID y el FileKey
@@ -215,11 +214,11 @@
                         ' 25/1/15 Formato #N!
                         If FromENCLink Then
                             Dim NuevoLink As String = URLExtractor.GenerateEncodedURILink("N?" & fileN.h, FileKey & "=###n=" & FolderID, False, False)
-                            Results.Add(New URLProcessor.FileURL(NuevoLink, path))
+                            Results.Add(New URLProcessor.FileURL(NuevoLink, path, FileInfoDec, FileSize))
                         Else
 
                             Dim NuevoLink As String = String.Format("http://mega.co.nz/#N!{0}!{1}=###n={2}", fileN.h, FileKey, FolderID)
-                            Results.Add(New URLProcessor.FileURL(NuevoLink, path))
+                            Results.Add(New URLProcessor.FileURL(NuevoLink, path, FileInfoDec, FileSize))
                         End If
 
                     Else

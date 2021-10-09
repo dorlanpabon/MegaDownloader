@@ -2,13 +2,17 @@
 
     Public Class FileURL
 
-        Public Sub New(pURL As String, pPath As String)
+        Public Sub New(pURL As String, pPath As String, pName As String, pSize As Long)
             Me.URL = pURL
             Me.Path = pPath
+            Me.Name = pName
+            Me.Size = pSize
         End Sub
 
         Public URL As String
         Public Path As String
+        Public Name As String
+        Public Size As Long
 
     End Class
 
@@ -44,17 +48,17 @@
                         Dim FolderID As String = URLExtractor.ExtraerFileID(FileURL)
                         Dim FolderKey As String = URLExtractor.ExtraerFileKey(FileURL)
                         For Each FileURL2 In MegaFolderHelper.RetrieveLinksFromFolder(FolderID, FolderKey, root)
-                            URLs3.Add(New FileURL(Fichero.HIDDEN_LINK & FileURL2.URL, FileURL2.Path))
+                            URLs3.Add(New FileURL(Fichero.HIDDEN_LINK & FileURL2.URL, FileURL2.Path, "", 0))
                         Next
                     Else
-                        URLs3.Add(New FileURL(Fichero.HIDDEN_LINK & FileURL, ""))
+                        URLs3.Add(New FileURL(Fichero.HIDDEN_LINK & FileURL, "", "", 0))
                     End If
                 Next
                 If ELC_exc IsNot Nothing Then
                     Throw ELC_exc
                 End If
             Else
-                URLs3.Add(New FileURL(URL, ""))
+                URLs3.Add(New FileURL(URL, "", "", 0))
             End If
         Next
         Return URLs3
