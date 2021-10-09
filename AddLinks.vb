@@ -237,9 +237,16 @@ Public Class AddLinks
                     Next
                 End With
 
-                Main.AgregarPaquete(oPaquete, False)
-                If chkStartDownload.Checked Then Main.StartDownload()
                 Me.Close()
+                Me.Dispose()
+
+                Dim SelectLinks = New SelectLinks
+                SelectLinks.Config = Config
+                SelectLinks.Main = Main
+                SelectLinks.oPaquete = oPaquete
+                SelectLinks.ShowDialog(SelectLinks.Main)
+                'Main.AgregarPaquete(oPaquete, False)
+                'If chkStartDownload.Checked Then Main.StartDownload()
 
 
             End If

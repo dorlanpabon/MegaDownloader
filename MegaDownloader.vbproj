@@ -298,6 +298,12 @@
     <Compile Include="PropiedadesDescarga.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SelectLinks.Designer.vb">
+      <DependentUpon>SelectLinks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SelectLinks.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SplashScreen.Designer.vb">
       <DependentUpon>SplashScreen.vb</DependentUpon>
     </Compile>
@@ -368,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PropiedadesDescarga.resx">
       <DependentUpon>PropiedadesDescarga.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectLinks.resx">
+      <DependentUpon>SelectLinks.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>
