@@ -9,6 +9,7 @@ Public Class SelectLinks
     Public root As String
     Public Property Checked As Boolean
 
+#Region "Cargar variables y treeview"
     Private Sub SelectLinks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Centramos la pantalla
         ' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right
@@ -36,7 +37,6 @@ Public Class SelectLinks
 
         TreeView1.ExpandAll()
     End Sub
-
     Private Shared Sub PopulateTreeView(ByVal treeView As TreeView, ByVal paths As List(Of String), ByVal pathSeparator As Char)
         Dim lastNode As TreeNode = Nothing
         Dim subPathAgg As String
@@ -63,7 +63,9 @@ Public Class SelectLinks
             lastNode = Nothing
         Next
     End Sub
+#End Region
 
+#Region "Eliminar resto de links no necesarios"
     Private Sub Delete_node_Click(sender As Object, e As EventArgs) Handles Delete_node.Click
         Try
             Dim node = TreeView1.SelectedNode.FullPath
@@ -172,7 +174,9 @@ Public Class SelectLinks
         End If
 
     End Sub
+#End Region
 
+#Region "Agregar links a descarga"
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Try
             oPaquete.ListaFicheros = ficheros
@@ -190,7 +194,9 @@ Public Class SelectLinks
         End Try
 
     End Sub
+#End Region
 
+#Region "Eliminar resto de links no necesarios"
     Private Sub Delete_all_nodes_Click(sender As Object, e As EventArgs) Handles Delete_all_nodes.Click
         Try
 
@@ -232,43 +238,12 @@ Public Class SelectLinks
                     RemoveNodesAll(nomr)
                 End If
             Next
-            'For i = ficheros.Count - 1 To 0 Step -1
-            '    Dim del = False
-            '    For f = nodes.Count - 1 To 0 Step -1
-            '        Dim ex As Regex = New Regex("(?<nombre>.*.\s.*-\(){1}")
-            '        Dim mat = ex.Match(nodes(f))
-            '        Dim nombre = mat.Groups("nombre").Value.Trim("("c, "-"c, " "c)
-            '        Console.WriteLine("math" + nombre)
-            '        Console.WriteLine("Node |" + nodes(f))
-            '        Console.WriteLine("pai" + CStr(i) + " ")
-            '        Console.WriteLine("Fichero  |" + root + "\" + ficheros(i).RutaRelativa + "\" + ficheros(i).Nombre)
 
-            '        If nombre Is Nothing Then
-            '            nombre = nodes(f)
-            '        End If
-
-            '        If root + "\" + ficheros(i).RutaRelativa + "\" + ficheros(i).Nombre = nombre And del = False Then
-            '            Console.WriteLine("if 1")
-            '            del = True
-            '            ficheros.RemoveAt(i)
-            '        ElseIf root + "\" + ficheros(i).RutaRelativa = nombre And del = False Then
-            '            Console.WriteLine("if 2")
-            '            del = True
-            '            ficheros.RemoveAt(i)
-            '        ElseIf root + "\" + ficheros(i).Nombre = nombre And del = False Then
-            '            Console.WriteLine("if 3")
-            '            del = True
-            '            ficheros.RemoveAt(i)
-            '        End If
-            '    Next
-
-            'Next
             Console.WriteLine(ficheros.Count)
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
     End Sub
-
     Private Sub GetChildNodesAllNodes(tnode As TreeNode, ByVal nodes As List(Of String))
         Dim nodefull = TreeView1.SelectedNode.FullPath
         'Iterate through the child nodes of the node passed into this subroutine
@@ -316,4 +291,5 @@ Public Class SelectLinks
         End If
 
     End Sub
+#End Region
 End Class
