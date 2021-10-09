@@ -227,6 +227,7 @@ Public Class AddLinks
                             .RutaLocal = ruta
                             .RutaRelativa = URL.Path
                             .NombreFichero = If(Visible, URLFile, Fichero.HIDDEN_LINK_DESC)
+                            .Nombre = URL.Name
                             .FileID = Fichero.ExtraerFileID(URLFile)
                             .FileKey = Fichero.ExtraerFileKey(URLFile)
                             .SetDescargaExtraccionAutomatica(txtPassword.Text) = chkUnZip.Checked

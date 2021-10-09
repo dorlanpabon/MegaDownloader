@@ -266,8 +266,10 @@ Public Class Fichero
             Me.ExtraccionFicheroPassword = Password
         End Set
     End Property
-	
-	Public Function DescargaTiempoEstimadoDescarga() As String Implements IDescarga.DescargaTiempoEstimadoDescarga
+
+    Public Property Nombre As String
+
+    Public Function DescargaTiempoEstimadoDescarga() As String Implements IDescarga.DescargaTiempoEstimadoDescarga
 		Return TiempoEstimadoDescarga
 	End Function
 	
