@@ -363,8 +363,8 @@ Public Class Conexion
                     Throw MEGA_ErrorHandler.GetErrorFromMegaResponse(str, "when retrieving file information")
                 End If
 
-                FileInfoRS = CType(Newtonsoft.Json.JsonConvert.DeserializeObject(str, _
-                                                                                 GetType(Generic.Dictionary(Of String, Object))),  _
+                FileInfoRS = CType(Newtonsoft.Json.JsonConvert.DeserializeObject(str,
+                                                                                 GetType(Generic.Dictionary(Of String, Object))),
                                                                                  Generic.Dictionary(Of String, Object))
 
                 If FileInfoRS.ContainsKey("e") AndAlso FileInfoRS.Item("e") IsNot Nothing Then
@@ -384,7 +384,6 @@ Public Class Conexion
                 Log.WriteError("Error getting the info for file " & FileID & ": Response not expected - Message received: " & Resultado.Mensaje & " - Error: " & excFileInfo.ToString)
                 Return Info
             End Try
-
             Dim FileInfo As String = CStr(FileInfoRS.Item("at"))
             Dim FileSize As String = CStr(FileInfoRS.Item("s"))
             Dim Download As String = CStr(FileInfoRS.Item("g"))

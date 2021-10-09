@@ -235,6 +235,7 @@ Public Class AddLinks
                             .FileID = Fichero.ExtraerFileID(URLFile)
                             .FileKey = Fichero.ExtraerFileKey(URLFile)
                             .SetDescargaExtraccionAutomatica(txtPassword.Text) = chkUnZip.Checked
+
                             Log.WriteWarning("Adding file to the new package: " & .FileID)
                         End With
                         .AgregarFichero(oFichero)

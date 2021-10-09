@@ -1,4 +1,5 @@
-﻿Public Class SelectLinks
+﻿Imports System.Text.RegularExpressions
+Public Class SelectLinks
     Public Main As Main
     Public Config As Configuracion
     Public oPaquete As Paquete
@@ -68,24 +69,30 @@
             Dim node = TreeView1.SelectedNode.FullPath
             Dim nodes = New List(Of String) From {}
 
+            Dim math = """(?<FileName>.*?)"""
+
             GetChildNodes(TreeView1.SelectedNode, nodes)
 
 
             For i = ficherosBackup.Count - 1 To 0 Step -1
                 Dim del = False
                 For f = nodes.Count - 1 To 0 Step -1
+                    Dim ex As Regex = New Regex("(?<nombre>.*.\s.*-\(){1}")
+                    Dim mat = ex.Match(nodes(f))
+                    Dim nombre = mat.Groups("nombre").Value.Trim("("c, "-"c, " "c)
+                    Console.WriteLine("math" + nombre)
                     Console.WriteLine("Node |" + nodes(f))
                     Console.WriteLine("pai" + CStr(i) + " ")
                     Console.WriteLine("Fichero  |" + root + "\" + ficherosBackup(i).RutaRelativa + "\" + ficherosBackup(i).Nombre)
-                    If root + "\" + ficherosBackup(i).RutaRelativa + "\" + ficherosBackup(i).Nombre = nodes(f) And del = False Then
+                    If root + "\" + ficherosBackup(i).RutaRelativa + "\" + ficherosBackup(i).Nombre = nombre And del = False Then
                         Console.WriteLine("if 1")
                         del = True
                         ficheros.RemoveAt(i)
-                    ElseIf root + "\" + ficherosBackup(i).RutaRelativa = nodes(f) And del = False Then
+                    ElseIf root + "\" + ficherosBackup(i).RutaRelativa = nombre And del = False Then
                         Console.WriteLine("if 2")
                         del = True
                         ficheros.RemoveAt(i)
-                    ElseIf root + "\" + ficherosBackup(i).Nombre = nodes(f) And del = False Then
+                    ElseIf root + "\" + ficherosBackup(i).Nombre = nombre And del = False Then
                         Console.WriteLine("if 3")
                         del = True
                         ficheros.RemoveAt(i)
@@ -125,8 +132,10 @@
             Next
             Me.Close()
             Me.Dispose()
-            Main.AgregarPaquete(oPaquete, False)
-            If Checked Then Main.StartDownload()
+            If oPaquete.ListaFicheros.Count > 0 Then
+                Main.AgregarPaquete(oPaquete, False)
+                If Checked Then Main.StartDownload()
+            End If
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try

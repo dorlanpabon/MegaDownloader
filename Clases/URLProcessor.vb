@@ -58,7 +58,17 @@
                     Throw ELC_exc
                 End If
             Else
-                URLs3.Add(New FileURL(URL, "", "", 0))
+                Dim oFichero As New Fichero(URL)
+                With oFichero
+                    .FileID = Fichero.ExtraerFileID(URL)
+                    .FileKey = Fichero.ExtraerFileKey(URL)
+                    Dim Err As Conexion.TipoError = Conexion.TipoError.SinErrores
+                    oFichero.ActualizarInformacionFichero(Config, Err, False)
+                End With
+                root.Add(oFichero.NombreFichero)
+
+                Dim file = New FileURL(oFichero.URL, "", oFichero.NombreFichero, oFichero.TamanoBytes)
+                URLs3.Add(file)
             End If
         Next
         Return URLs3

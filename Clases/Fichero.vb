@@ -274,18 +274,19 @@ Public Class Fichero
 	End Function
 	
 	Private _Actualizando As Boolean = False
-	Public Sub ActualizarInformacionFichero(ByVal Config As Configuracion, ByRef ErrorObtenido As Conexion.TipoError, ByVal ComprobacionAntesDescarga As boolean)
+	Public Sub ActualizarInformacionFichero(ByVal Config As Configuracion, ByRef ErrorObtenido As Conexion.TipoError, ByVal ComprobacionAntesDescarga As Boolean)
 		If Not _Actualizando Then
 			_Actualizando = True
 			Try
 				Dim EstadoAnterior As Estado = Me.DescargaEstado
 				Me.SetDescargaEstado = Estado.Verificando
-				
+
 				Dim Info As Conexion.InformacionFichero = Conexion.ObtenerInformacionFichero(Config, Me.FileID, Me.FileKey, ComprobacionAntesDescarga)
+				Console.WriteLine(Info)
 				If Info IsNot Nothing AndAlso Info.Err = Conexion.TipoError.SinErrores Then
-					If Not String.IsNullOrEmpty(Info.URL) then Me.URLFichero = Info.URL
-					If Info.Tamano  > 0 Then Me.TamanoBytes = Info.Tamano
-					If Not String.IsNullOrEmpty(Info.Nombre) then Me.NombreFichero = Info.Nombre
+					If Not String.IsNullOrEmpty(Info.URL) Then Me.URLFichero = Info.URL
+					If Info.Tamano > 0 Then Me.TamanoBytes = Info.Tamano
+					If Not String.IsNullOrEmpty(Info.Nombre) Then Me.NombreFichero = Info.Nombre
 					Me.MD5 = Info.MD5
 					Me.DescargaProcesada = True
 					Me.SetDescargaEstado = EstadoAnterior
@@ -293,9 +294,9 @@ Public Class Fichero
 					Me.FileID = Info.FileID
 				ElseIf Info IsNot Nothing AndAlso Info.Err <> Conexion.TipoError.SinErrores Then
 					ErrorObtenido = Info.Err
-					Me.EstablecerError("The file could not be verified." & vbNewLine & _
-						" * File code: " & Me.FileID & vbNewLine & _
-						" * Error type: " & Info.Err.ToString & vbNewLine & _
+					Me.EstablecerError("The file could not be verified." & vbNewLine &
+						" * File code: " & Me.FileID & vbNewLine &
+						" * Error type: " & Info.Err.ToString & vbNewLine &
 						" * Internal info: " & Info.Errtxt)
 				End If
 			Finally
@@ -303,9 +304,9 @@ Public Class Fichero
 			End Try
 		End If
 	End Sub
-	
-	
-	
+
+
+
 	Public Shared Function ExtraerFileKey(ByVal URL As String) As String
 		Return URLExtractor.ExtraerFileKey(URL)
 	End Function
