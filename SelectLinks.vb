@@ -18,10 +18,7 @@ Public Class SelectLinks
         Dim scr = Screen.FromPoint(Me.Location)
         Me.Location = New Point(CInt((scr.WorkingArea.Right - Me.Width) / 2), CInt((scr.WorkingArea.Bottom - Me.Height) / 2))
 
-
         DrawTreeView()
-
-
     End Sub
     Private Shared Sub PopulateTreeView(ByVal treeView As TreeView, ByVal paths As List(Of String), ByVal pathSeparator As Char)
         Dim lastNode As TreeNode = Nothing
@@ -53,7 +50,8 @@ Public Class SelectLinks
 #End Region
 
 #Region "Eliminar un nodo"
-    Private Sub Delete_node_Click(sender As Object, e As EventArgs) Handles Delete_node.Click
+    Private Sub Delete_node_Click(sender As Object, e As EventArgs) Handles BtnDelete_node.Click
+        DisableButtonsDelete()
         Try
             Dim node = TreeView1.SelectedNode.FullPath
             Dim nodes = New List(Of String) From {}
@@ -158,7 +156,8 @@ Public Class SelectLinks
 #End Region
 
 #Region "Eliminar resto de links no necesarios"
-    Private Sub Delete_all_nodes_Click(sender As Object, e As EventArgs) Handles Delete_all_nodes.Click
+    Private Sub Delete_all_nodes_Click(sender As Object, e As EventArgs) Handles BtnDelete_all_nodes.Click
+        DisableButtonsDelete()
         Try
             Dim nodes = New List(Of String) From {}
 
@@ -253,20 +252,30 @@ Public Class SelectLinks
 
     End Sub
 #End Region
+
 #Region "Utilidades"
     Private Sub CalcTamanoBytes()
         tamanobytes = 0
         For Each fic In ficheros
             tamanobytes += fic.TamanoBytes
         Next
+
+        If ficheros.Count > 0 Then
+            btnAgregar.Enabled = True
+        Else
+            btnAgregar.Enabled = False
+        End If
         'father.Nodes.Add(fic.RutaRelativa + "\" + fic.Nombre).Checked = True
         Tamano.Text = CStr(Main.PintarTamano(tamanobytes))
 
     End Sub
 
     Private Sub BtnRestaurar_Click(sender As Object, e As EventArgs) Handles BtnRestaurar.Click
+        BtnDelete_all_nodes.Enabled = False
+        BtnDelete_node.Enabled = False
         ficheros = oPaquete.ListaFicheros.ToList()
         DrawTreeView()
+        CalcTamanoBytes()
     End Sub
 
     Private Sub DrawTreeView()
@@ -299,10 +308,25 @@ Public Class SelectLinks
     Private Sub BtnContraer_Click(sender As Object, e As EventArgs) Handles BtnContraer.Click
         TreeView1.CollapseAll()
         TreeView1.Nodes(0).Expand()
+        DisableButtonsDelete()
     End Sub
 
     Private Sub BtnExpandir_Click(sender As Object, e As EventArgs) Handles BtnExpandir.Click
         TreeView1.ExpandAll()
+        DisableButtonsDelete()
+    End Sub
+
+    Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
+        EnableButtonsDelete()
+    End Sub
+
+    Private Sub DisableButtonsDelete()
+        BtnDelete_all_nodes.Enabled = False
+        BtnDelete_node.Enabled = False
+    End Sub
+    Private Sub EnableButtonsDelete()
+        BtnDelete_all_nodes.Enabled = True
+        BtnDelete_node.Enabled = True
     End Sub
 #End Region
 End Class

@@ -23,13 +23,13 @@ Partial Class SelectLinks
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Carpeta")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Carpeta")
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SelectLinks))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.btnAgregar = New System.Windows.Forms.Button()
-        Me.Delete_node = New System.Windows.Forms.Button()
+        Me.BtnDelete_node = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Delete_all_nodes = New System.Windows.Forms.Button()
+        Me.BtnDelete_all_nodes = New System.Windows.Forms.Button()
         Me.imageTreeview = New System.Windows.Forms.ImageList(Me.components)
         Me.Tamano = New System.Windows.Forms.Label()
         Me.BtnRestaurar = New System.Windows.Forms.Button()
@@ -43,9 +43,9 @@ Partial Class SelectLinks
         Me.TreeView1.ForeColor = System.Drawing.SystemColors.WindowFrame
         Me.TreeView1.Location = New System.Drawing.Point(66, 65)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.Name = "Nodo0"
-        TreeNode1.Text = "Carpeta"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
+        TreeNode2.Name = "Nodo0"
+        TreeNode2.Text = "Carpeta"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
         Me.TreeView1.Size = New System.Drawing.Size(664, 300)
         Me.TreeView1.TabIndex = 5
         '
@@ -58,14 +58,15 @@ Partial Class SelectLinks
         Me.btnAgregar.Text = "Agregar links"
         Me.btnAgregar.UseVisualStyleBackColor = True
         '
-        'Delete_node
+        'BtnDelete_node
         '
-        Me.Delete_node.Location = New System.Drawing.Point(439, 402)
-        Me.Delete_node.Name = "Delete_node"
-        Me.Delete_node.Size = New System.Drawing.Size(133, 23)
-        Me.Delete_node.TabIndex = 6
-        Me.Delete_node.Text = "Eliminar Item"
-        Me.Delete_node.UseVisualStyleBackColor = True
+        Me.BtnDelete_node.Enabled = False
+        Me.BtnDelete_node.Location = New System.Drawing.Point(439, 402)
+        Me.BtnDelete_node.Name = "BtnDelete_node"
+        Me.BtnDelete_node.Size = New System.Drawing.Size(133, 23)
+        Me.BtnDelete_node.TabIndex = 6
+        Me.BtnDelete_node.Text = "Eliminar Item"
+        Me.BtnDelete_node.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -80,14 +81,15 @@ Partial Class SelectLinks
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Carpetas y Archivos"
         '
-        'Delete_all_nodes
+        'BtnDelete_all_nodes
         '
-        Me.Delete_all_nodes.Location = New System.Drawing.Point(279, 402)
-        Me.Delete_all_nodes.Name = "Delete_all_nodes"
-        Me.Delete_all_nodes.Size = New System.Drawing.Size(133, 23)
-        Me.Delete_all_nodes.TabIndex = 8
-        Me.Delete_all_nodes.Text = "Eliminar Demas Items"
-        Me.Delete_all_nodes.UseVisualStyleBackColor = True
+        Me.BtnDelete_all_nodes.Enabled = False
+        Me.BtnDelete_all_nodes.Location = New System.Drawing.Point(279, 402)
+        Me.BtnDelete_all_nodes.Name = "BtnDelete_all_nodes"
+        Me.BtnDelete_all_nodes.Size = New System.Drawing.Size(133, 23)
+        Me.BtnDelete_all_nodes.TabIndex = 8
+        Me.BtnDelete_all_nodes.Text = "Eliminar Demas Items"
+        Me.BtnDelete_all_nodes.UseVisualStyleBackColor = True
         '
         'imageTreeview
         '
@@ -146,9 +148,9 @@ Partial Class SelectLinks
         Me.Controls.Add(Me.BtnContraer)
         Me.Controls.Add(Me.BtnRestaurar)
         Me.Controls.Add(Me.Tamano)
-        Me.Controls.Add(Me.Delete_all_nodes)
+        Me.Controls.Add(Me.BtnDelete_all_nodes)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Delete_node)
+        Me.Controls.Add(Me.BtnDelete_node)
         Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.btnAgregar)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -161,9 +163,9 @@ Partial Class SelectLinks
 
     Friend WithEvents TreeView1 As TreeView
     Friend WithEvents btnAgregar As Button
-    Friend WithEvents Delete_node As Button
+    Friend WithEvents BtnDelete_node As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents Delete_all_nodes As Button
+    Friend WithEvents BtnDelete_all_nodes As Button
     Friend WithEvents imageTreeview As ImageList
     Friend WithEvents Tamano As Label
     Friend WithEvents BtnRestaurar As Button
