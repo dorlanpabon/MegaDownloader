@@ -22,6 +22,7 @@ Partial Class SelectLinks
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Carpeta")
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SelectLinks))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
@@ -29,6 +30,11 @@ Partial Class SelectLinks
         Me.Delete_node = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Delete_all_nodes = New System.Windows.Forms.Button()
+        Me.imageTreeview = New System.Windows.Forms.ImageList(Me.components)
+        Me.Tamano = New System.Windows.Forms.Label()
+        Me.BtnRestaurar = New System.Windows.Forms.Button()
+        Me.BtnContraer = New System.Windows.Forms.Button()
+        Me.BtnExpandir = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TreeView1
@@ -58,7 +64,7 @@ Partial Class SelectLinks
         Me.Delete_node.Name = "Delete_node"
         Me.Delete_node.Size = New System.Drawing.Size(133, 23)
         Me.Delete_node.TabIndex = 6
-        Me.Delete_node.Text = "Eliminar Nodo"
+        Me.Delete_node.Text = "Eliminar Item"
         Me.Delete_node.UseVisualStyleBackColor = True
         '
         'Label1
@@ -80,14 +86,66 @@ Partial Class SelectLinks
         Me.Delete_all_nodes.Name = "Delete_all_nodes"
         Me.Delete_all_nodes.Size = New System.Drawing.Size(133, 23)
         Me.Delete_all_nodes.TabIndex = 8
-        Me.Delete_all_nodes.Text = "Eliminar Demas Nodos"
+        Me.Delete_all_nodes.Text = "Eliminar Demas Items"
         Me.Delete_all_nodes.UseVisualStyleBackColor = True
+        '
+        'imageTreeview
+        '
+        Me.imageTreeview.ImageStream = CType(resources.GetObject("imageTreeview.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imageTreeview.TransparentColor = System.Drawing.Color.Transparent
+        Me.imageTreeview.Images.SetKeyName(0, "folder.png")
+        Me.imageTreeview.Images.SetKeyName(1, "addlink.png")
+        Me.imageTreeview.Images.SetKeyName(2, "plantilla.png")
+        '
+        'Tamano
+        '
+        Me.Tamano.AutoSize = True
+        Me.Tamano.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Tamano.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Tamano.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Tamano.ForeColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(90, Byte), Integer), CType(CType(9, Byte), Integer))
+        Me.Tamano.Location = New System.Drawing.Point(62, 402)
+        Me.Tamano.Name = "Tamano"
+        Me.Tamano.Size = New System.Drawing.Size(67, 20)
+        Me.Tamano.TabIndex = 9
+        Me.Tamano.Text = "Tamaño"
+        '
+        'BtnRestaurar
+        '
+        Me.BtnRestaurar.Location = New System.Drawing.Point(597, 23)
+        Me.BtnRestaurar.Name = "BtnRestaurar"
+        Me.BtnRestaurar.Size = New System.Drawing.Size(133, 23)
+        Me.BtnRestaurar.TabIndex = 10
+        Me.BtnRestaurar.Text = "Restaurar"
+        Me.BtnRestaurar.UseVisualStyleBackColor = True
+        '
+        'BtnContraer
+        '
+        Me.BtnContraer.Location = New System.Drawing.Point(244, 23)
+        Me.BtnContraer.Name = "BtnContraer"
+        Me.BtnContraer.Size = New System.Drawing.Size(60, 23)
+        Me.BtnContraer.TabIndex = 11
+        Me.BtnContraer.Text = "Contraer"
+        Me.BtnContraer.UseVisualStyleBackColor = True
+        '
+        'BtnExpandir
+        '
+        Me.BtnExpandir.Location = New System.Drawing.Point(310, 23)
+        Me.BtnExpandir.Name = "BtnExpandir"
+        Me.BtnExpandir.Size = New System.Drawing.Size(60, 23)
+        Me.BtnExpandir.TabIndex = 12
+        Me.BtnExpandir.Text = "Expandir"
+        Me.BtnExpandir.UseVisualStyleBackColor = True
         '
         'SelectLinks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.BtnExpandir)
+        Me.Controls.Add(Me.BtnContraer)
+        Me.Controls.Add(Me.BtnRestaurar)
+        Me.Controls.Add(Me.Tamano)
         Me.Controls.Add(Me.Delete_all_nodes)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Delete_node)
@@ -106,4 +164,9 @@ Partial Class SelectLinks
     Friend WithEvents Delete_node As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Delete_all_nodes As Button
+    Friend WithEvents imageTreeview As ImageList
+    Friend WithEvents Tamano As Label
+    Friend WithEvents BtnRestaurar As Button
+    Friend WithEvents BtnContraer As Button
+    Friend WithEvents BtnExpandir As Button
 End Class

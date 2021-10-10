@@ -7,6 +7,8 @@ Public Class SelectLinks
     Public ficheros As List(Of Fichero)
     Public ficherosBackup As List(Of Fichero)
     Public root As String
+    Private tamanobytes As Long
+
     Public Property Checked As Boolean
 
 #Region "Cargar variables y treeview"
@@ -16,26 +18,10 @@ Public Class SelectLinks
         Dim scr = Screen.FromPoint(Me.Location)
         Me.Location = New Point(CInt((scr.WorkingArea.Right - Me.Width) / 2), CInt((scr.WorkingArea.Bottom - Me.Height) / 2))
 
-        TreeView1.Nodes.Clear()
 
-        Dim paths = New List(Of String) From {}
-        ficheros = oPaquete.ListaFicheros
-        ficherosBackup = oPaquete.ListaFicheros.ToList
-        root = oPaquete.Nombre
+        DrawTreeView()
 
-        For Each fic In ficheros
-            Console.WriteLine(fic.RutaLocal)
-            If fic.RutaRelativa Is "" Then
-                paths.Add(root + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")")
-            Else
-                paths.Add(root + "\" + fic.RutaRelativa + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")")
-            End If
-        Next
-        'father.Nodes.Add(fic.RutaRelativa + "\" + fic.Nombre).Checked = True
 
-        PopulateTreeView(TreeView1, paths, "\"c)
-
-        TreeView1.ExpandAll()
     End Sub
     Private Shared Sub PopulateTreeView(ByVal treeView As TreeView, ByVal paths As List(Of String), ByVal pathSeparator As Char)
         Dim lastNode As TreeNode = Nothing
@@ -54,6 +40,7 @@ Public Class SelectLinks
                         lastNode = treeView.Nodes.Add(subPathAgg, subPath)
                     Else
                         lastNode = lastNode.Nodes.Add(subPathAgg, subPath)
+                        lastNode.StateImageIndex = 1
                     End If
                 Else
                     lastNode = nodes(0)
@@ -65,7 +52,7 @@ Public Class SelectLinks
     End Sub
 #End Region
 
-#Region "Eliminar resto de links no necesarios"
+#Region "Eliminar un nodo"
     Private Sub Delete_node_Click(sender As Object, e As EventArgs) Handles Delete_node.Click
         Try
             Dim node = TreeView1.SelectedNode.FullPath
@@ -107,39 +94,11 @@ Public Class SelectLinks
                     RemoveNodes(nomr)
                 End If
             Next
-            'For i = ficheros.Count - 1 To 0 Step -1
-            '    Dim del = False
-            '    For f = nodes.Count - 1 To 0 Step -1
-            '        Dim ex As Regex = New Regex("(?<nombre>.*.\s.*-\(){1}")
-            '        Dim mat = ex.Match(nodes(f))
-            '        Dim nombre = mat.Groups("nombre").Value.Trim("("c, "-"c, " "c)
-            '        Console.WriteLine("math" + nombre)
-            '        Console.WriteLine("Node |" + nodes(f))
-            '        Console.WriteLine("pai" + CStr(i) + " ")
-            '        Console.WriteLine("Fichero  |" + root + "\" + ficheros(i).RutaRelativa + "\" + ficheros(i).Nombre)
 
-            '        If nombre Is Nothing Then
-            '            nombre = nodes(f)
-            '        End If
-
-            '        If root + "\" + ficheros(i).RutaRelativa + "\" + ficheros(i).Nombre = nombre And del = False Then
-            '            Console.WriteLine("if 1")
-            '            del = True
-            '            ficheros.RemoveAt(i)
-            '        ElseIf root + "\" + ficheros(i).RutaRelativa = nombre And del = False Then
-            '            Console.WriteLine("if 2")
-            '            del = True
-            '            ficheros.RemoveAt(i)
-            '        ElseIf root + "\" + ficheros(i).Nombre = nombre And del = False Then
-            '            Console.WriteLine("if 3")
-            '            del = True
-            '            ficheros.RemoveAt(i)
-            '        End If
-            '    Next
-
-            'Next
             Console.WriteLine(ficheros.Count)
             TreeView1.SelectedNode.Remove()
+
+            CalcTamanoBytes()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
@@ -147,6 +106,9 @@ Public Class SelectLinks
     End Sub
     Private Sub GetChildNodes(tnode As TreeNode, ByVal nodes As List(Of String))
 
+        If tnode.Nodes.Count = 0 Then
+            nodes.Add(tnode.FullPath)
+        End If
         'Iterate through the child nodes of the node passed into this subroutine
         For Each node As TreeNode In tnode.Nodes
             'If the node passed into this subroutine contains child nodes,
@@ -192,14 +154,12 @@ Public Class SelectLinks
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
-
     End Sub
 #End Region
 
 #Region "Eliminar resto de links no necesarios"
     Private Sub Delete_all_nodes_Click(sender As Object, e As EventArgs) Handles Delete_all_nodes.Click
         Try
-
             Dim nodes = New List(Of String) From {}
 
             Dim math = """(?<FileName>.*?)"""
@@ -240,6 +200,7 @@ Public Class SelectLinks
             Next
 
             Console.WriteLine(ficheros.Count)
+            CalcTamanoBytes()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
@@ -290,6 +251,58 @@ Public Class SelectLinks
             RemoveNodesAll(nombre)
         End If
 
+    End Sub
+#End Region
+#Region "Utilidades"
+    Private Sub CalcTamanoBytes()
+        tamanobytes = 0
+        For Each fic In ficheros
+            tamanobytes += fic.TamanoBytes
+        Next
+        'father.Nodes.Add(fic.RutaRelativa + "\" + fic.Nombre).Checked = True
+        Tamano.Text = CStr(Main.PintarTamano(tamanobytes))
+
+    End Sub
+
+    Private Sub BtnRestaurar_Click(sender As Object, e As EventArgs) Handles BtnRestaurar.Click
+        ficheros = oPaquete.ListaFicheros.ToList()
+        DrawTreeView()
+    End Sub
+
+    Private Sub DrawTreeView()
+
+        TreeView1.Nodes.Clear()
+
+        Dim paths = New List(Of String) From {}
+        ficheros = oPaquete.ListaFicheros.ToList()
+        root = oPaquete.Nombre
+        tamanobytes = 0
+
+        For Each fic In ficheros
+            Console.WriteLine(fic.RutaLocal)
+            If fic.RutaRelativa Is "" Then
+                paths.Add(root + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")")
+            Else
+                paths.Add(root + "\" + fic.RutaRelativa + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")")
+            End If
+            tamanobytes += fic.TamanoBytes
+        Next
+        'father.Nodes.Add(fic.RutaRelativa + "\" + fic.Nombre).Checked = True
+        Tamano.Text = CStr(Main.PintarTamano(tamanobytes))
+        PopulateTreeView(TreeView1, paths, "\"c)
+
+        TreeView1.ImageList = imageTreeview
+
+        TreeView1.ExpandAll()
+    End Sub
+
+    Private Sub BtnContraer_Click(sender As Object, e As EventArgs) Handles BtnContraer.Click
+        TreeView1.CollapseAll()
+        TreeView1.Nodes(0).Expand()
+    End Sub
+
+    Private Sub BtnExpandir_Click(sender As Object, e As EventArgs) Handles BtnExpandir.Click
+        TreeView1.ExpandAll()
     End Sub
 #End Region
 End Class
