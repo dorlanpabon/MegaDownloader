@@ -56,84 +56,23 @@ Public Class SelectLinks
             Dim node = TreeView1.SelectedNode.FullPath
             Dim nodes = New List(Of String) From {}
 
-            Dim math = """(?<FileName>.*?)"""
-
-            GetChildNodes(TreeView1.SelectedNode, nodes)
-
-
-            For f = nodes.Count - 1 To 0 Step -1
-                Dim ex As Regex = New Regex("(?<nombre>.*.\s.*-\(){1}")
-                Dim mat = ex.Match(nodes(f))
-                Dim nombre = mat.Groups("nombre").Value.Trim("("c, "-"c, " "c)
-
-                If nombre Is "" Then
-                    nombre = nodes(f)
-                End If
-                Console.WriteLine("antes")
-                Console.WriteLine(nodes(f))
-                Dim nomr = nombre.Replace(root + "\", "")
-                Dim ruta = ""
-                Dim nom = ""
-                nom = nombre.Split("\"c).Last
-                ruta = nomr.Replace("\" + nom, "")
-                If nomr = nom Then
-                    ruta = ""
-                End If
-
-
-                Dim i = ficheros.FindIndex(Function(p) p.RutaRelativa = ruta And p.Nombre = nom)
-                Console.WriteLine("la i" + CStr(i))
-                Console.WriteLine(nomr)
-                Console.WriteLine(nom)
-                If i > -1 Then
-                    Console.WriteLine("Ingreso a if i")
-                    ficheros.RemoveAt(i)
-                Else
-                    RemoveNodes(nomr)
-                End If
-            Next
-
-            Console.WriteLine(ficheros.Count)
+            Dim ext As Regex = New Regex("-\[\(\[(?<nombre>.*)\]\)\]{1}")
+            Dim matt = ext.Match(node)
+            Dim nombret = matt.Groups("nombre").Value
+            If nombret.Equals("") Then
+                GetChildNodes(TreeView1.SelectedNode)
+            Else
+                ficheros.RemoveAt(CInt(nombret))
+                'Console.WriteLine(ficheros.Count)
+            End If
             TreeView1.SelectedNode.Remove()
-
             CalcTamanoBytes()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
 
     End Sub
-    Private Sub GetChildNodes(tnode As TreeNode, ByVal nodes As List(Of String))
 
-        If tnode.Nodes.Count = 0 Then
-            nodes.Add(tnode.FullPath)
-        End If
-        'Iterate through the child nodes of the node passed into this subroutine
-        For Each node As TreeNode In tnode.Nodes
-            'If the node passed into this subroutine contains child nodes,
-            'call the subroutine for each one of them
-            'If you only want to display one level deep, then comment out the
-            'IF statement.
-
-            nodes.Add(node.FullPath)
-            Console.WriteLine(node.FullPath)
-            If tnode.Nodes.Count > 0 Then GetChildNodes(node, nodes)
-
-        Next
-
-    End Sub
-    Private Sub RemoveNodes(nombre As String)
-
-        Dim j = ficheros.FindIndex(Function(p) p.RutaRelativa = nombre)
-
-        Console.WriteLine("la j" + CStr(j))
-        Console.WriteLine(nombre)
-        If j > -1 Then
-            Console.WriteLine("Ingreso a if j")
-            ficheros.RemoveAt(j)
-            RemoveNodes(nombre)
-        End If
-
-    End Sub
 #End Region
 
 #Region "Agregar links a descarga"
@@ -151,6 +90,8 @@ Public Class SelectLinks
             End If
         Catch ex As Exception
             Console.WriteLine(ex.Message)
+            Log.WriteError("Error while adding the link: " & ex.ToString)
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 #End Region
@@ -159,105 +100,60 @@ Public Class SelectLinks
     Private Sub Delete_all_nodes_Click(sender As Object, e As EventArgs) Handles BtnDelete_all_nodes.Click
         DisableButtonsDelete()
         Try
-            Dim nodes = New List(Of String) From {}
+            Dim nodet = TreeView1.SelectedNode.FullPath
 
-            Dim math = """(?<FileName>.*?)"""
+            Dim ext As Regex = New Regex("-\[\(\[(?<nombre>.*)\]\)\]{1}")
+            Dim matt = ext.Match(nodet)
+            Dim nombret = matt.Groups("nombre").Value
 
-            GetChildNodesAllNodes(TreeView1.Nodes(0), nodes)
+            If nombret.Equals("") Then
 
+                GetChildNodesAllNodes(TreeView1.Nodes(0))
+            Else
+                Dim ficher = ficheros.ElementAt(CInt(nombret))
+                ficheros.Clear()
+                ficheros.Add(ficher)
+                'Console.WriteLine(ficheros.Count)
+            End If
 
-            For f = nodes.Count - 1 To 0 Step -1
-                Dim ex As Regex = New Regex("(?<nombre>.*.\s.*-\(){1}")
-                Dim mat = ex.Match(nodes(f))
-                Dim nombre = mat.Groups("nombre").Value.Trim("("c, "-"c, " "c)
+            DrawTreeViewDel()
 
-                If nombre Is "" Then
-                    nombre = nodes(f)
-                End If
-                Console.WriteLine("antes")
-                Console.WriteLine(nodes(f))
-                Dim nomr = nombre.Replace(root + "\", "")
-                Dim ruta = ""
-                Dim nom = ""
-                nom = nombre.Split("\"c).Last
-                ruta = nomr.Replace("\" + nom, "")
-                If nomr = nom Then
-                    ruta = ""
-                End If
-
-
-                Dim i = ficheros.FindIndex(Function(p) p.RutaRelativa = ruta And p.Nombre = nom)
-                Console.WriteLine("la i" + CStr(i))
-                Console.WriteLine(nomr)
-                Console.WriteLine(nom)
-                If i > -1 Then
-                    Console.WriteLine("Ingreso a if i")
-                    ficheros.RemoveAt(i)
-                Else
-                    RemoveNodesAll(nomr)
-                End If
-            Next
-
-            Console.WriteLine(ficheros.Count)
             CalcTamanoBytes()
+            'Console.WriteLine(ficheros.Count)
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
-    End Sub
-    Private Sub GetChildNodesAllNodes(tnode As TreeNode, ByVal nodes As List(Of String))
-        Dim nodefull = TreeView1.SelectedNode.FullPath
-        'Iterate through the child nodes of the node passed into this subroutine
-
-        For i As Integer = tnode.Nodes.Count - 1 To 0 Step -1
-            Dim node = tnode.Nodes(i)
-            ' Do your stuff with s
-            Dim delete = False
-            If node.FullPath.IndexOf(nodefull) < 0 Then
-                Dim ultimo = node.FullPath.Split("\"c)
-                Console.WriteLine("nodefull origen 2 -" + nodefull)
-                Console.WriteLine("fullpath eliminar 2-" + node.FullPath)
-                For Each u In ultimo
-                    If nodefull.IndexOf(u) < 0 And delete = False Then
-                        Console.WriteLine("ingreso a remove2")
-                        Try
-
-                            nodes.Add(node.FullPath)
-                            node.Remove()
-                        Catch ex As Exception
-
-                        End Try
-                        delete = True
-                    End If
-                Next
-
-                If delete = False Then
-                    Console.WriteLine("Antes de if2")
-                    If tnode.Nodes.Count > 0 Then GetChildNodesAllNodes(node, nodes)
-                End If
-            End If
-        Next i
 
     End Sub
-    Private Sub RemoveNodesAll(nombre As String)
 
-        Dim j = ficheros.FindIndex(Function(p) p.RutaRelativa = nombre)
-
-        Console.WriteLine("la j" + CStr(j))
-        Console.WriteLine(nombre)
-        If j > -1 Then
-            Console.WriteLine("Ingreso a if j")
-            ficheros.RemoveAt(j)
-            RemoveNodesAll(nombre)
-        End If
-
-    End Sub
 #End Region
 
 #Region "Utilidades"
+    Private Sub GetChildNodes(tnode As TreeNode)
+
+        Dim nodefull = TreeView1.SelectedNode.FullPath
+        'Iterate through the child nodes of the node passed into this subroutine
+
+        Dim nomr = nodefull.Replace(root + "\", "")
+
+        ficheros.RemoveAll(Function(p) p.RutaRelativa.Contains(nomr))
+
+    End Sub
+
+    Private Sub GetChildNodesAllNodes(tnode As TreeNode)
+        Dim nodefull = TreeView1.SelectedNode.FullPath
+        'Iterate through the child nodes of the node passed into this subroutine
+        Dim nomr = nodefull.Replace(root + "\", "")
+        ficheros = ficheros.FindAll(Function(p) p.RutaRelativa.Contains(nomr))
+
+    End Sub
+
     Private Sub CalcTamanoBytes()
         tamanobytes = 0
         For Each fic In ficheros
             tamanobytes += fic.TamanoBytes
+            'Console.WriteLine("Cal tamaño")
+            'Console.WriteLine(fic.NombreFichero)
         Next
 
         If ficheros.Count > 0 Then
@@ -279,20 +175,27 @@ Public Class SelectLinks
     End Sub
 
     Private Sub DrawTreeView()
+        ficheros = oPaquete.ListaFicheros.ToList()
+        DrawTreeViewAll()
+    End Sub
+    Private Sub DrawTreeViewDel()
+        DrawTreeViewAll()
+    End Sub
+    Private Sub DrawTreeViewAll()
 
         TreeView1.Nodes.Clear()
 
         Dim paths = New List(Of String) From {}
-        ficheros = oPaquete.ListaFicheros.ToList()
         root = oPaquete.Nombre
         tamanobytes = 0
 
         For Each fic In ficheros
-            Console.WriteLine(fic.RutaLocal)
+            'Console.WriteLine(fic.RutaLocal)
+            Dim index = ficheros.IndexOf(fic)
             If fic.RutaRelativa Is "" Then
-                paths.Add(root + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")")
+                paths.Add(root + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")-[([" + CStr(index) + "])]")
             Else
-                paths.Add(root + "\" + fic.RutaRelativa + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")")
+                paths.Add(root + "\" + fic.RutaRelativa + "\" + fic.Nombre + " -(" + CStr(Main.PintarTamano(fic.DescargaTamanoBytes)) + ")-[([" + CStr(index) + "])]")
             End If
             tamanobytes += fic.TamanoBytes
         Next
