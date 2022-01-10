@@ -53,9 +53,11 @@ Public Class Configuracion
 	Public ConexionesPorFichero As Integer
 	
 	Public DescargasSimultaneas As Integer
-	
+
 	Public ResetearErrores As Boolean
-	
+
+	Public Tema As Boolean
+
 	Public UsarProxy As Boolean
 	
     Public ApagarPC As Boolean
@@ -164,12 +166,14 @@ Public Class Configuracion
 		
 		Xml.DocumentElement.AppendChild(Xml.CreateElement("DescargasSimultaneas")).InnerText = DescargasSimultaneas.ToString
 		Xml.DocumentElement.AppendChild(Xml.CreateElement("ConexionesPorFichero")).InnerText = ConexionesPorFichero.ToString
-		
+
 		Xml.DocumentElement.AppendChild(Xml.CreateElement("ResetearErrores")).InnerText = ResetearErrores.ToString
-		
+
+		Xml.DocumentElement.AppendChild(Xml.CreateElement("Tema")).InnerText = Tema.ToString
+
 		' Xml.DocumentElement.AppendChild(Xml.CreateElement("ApagarPC")).InnerText = ApagarPC.ToString
-		
-        Xml.DocumentElement.AppendChild(Xml.CreateElement("ComenzarDescargando")).InnerText = ComenzarDescargando.ToString
+
+		Xml.DocumentElement.AppendChild(Xml.CreateElement("ComenzarDescargando")).InnerText = ComenzarDescargando.ToString
 
         Xml.DocumentElement.AppendChild(Xml.CreateElement("CheckUpdates")).InnerText = CheckUpdates.ToString
 		
@@ -322,6 +326,7 @@ Public Class Configuracion
 		AnalizarPortapapeles = False
 		'PermitirSkins = True
 		ResetearErrores = False
+		Tema = False
 		UsarProxy = False
 		ApagarPC = False
         ComenzarDescargando = True
@@ -337,6 +342,7 @@ Public Class Configuracion
 		Boolean.TryParse(LeerNodo(Xml, "AnalizarPortapapeles", "false"), AnalizarPortapapeles)
 		'Boolean.TryParse(LeerNodo(Xml, "PermitirSkins", "true"), PermitirSkins)
 		Boolean.TryParse(LeerNodo(Xml, "ResetearErrores", "false"), ResetearErrores)
+		Boolean.TryParse(LeerNodo(Xml, "Tema", "false"), Tema)
 		Boolean.TryParse(LeerNodo(Xml, "UsarProxy", "false"), UsarProxy)
 		Boolean.TryParse(LeerNodo(Xml, "IniciarConWindows", "false"), IniciarConWindows)
 		Boolean.TryParse(LeerNodo(Xml, "MantenerUltimaConfiguracion", "true"), MantenerUltimaConfiguracion)

@@ -10,10 +10,184 @@ Public Class Configuration
 
     Private ListaPreSharedKey As List(Of String)
 
-    Private Sub Configuration_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+    Private Sub Configuration_Load(sender As Object, e As System.EventArgs) Handles MyBase.Load
 
         ElcAccountControl.Config = Config
         ElcAccountControl.CargarDatos()
+
+        'Dark Theme
+        If Config.Tema Then
+
+
+            Me.BackColor = Color.FromArgb(32, 33, 36)
+            Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+            Me.btnCancel.BackColor = Color.FromArgb(52, 53, 56)
+            Me.btnGuardar.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.btnExaminar.BackColor = Color.FromArgb(52, 53, 56)
+            Me.btnExaminarTemplate.BackColor = Color.FromArgb(52, 53, 56)
+            Me.btnExaminarVLCPath.BackColor = Color.FromArgb(52, 53, 56)
+
+
+            Me.btnCancel.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.btnGuardar.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.btnExaminar.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.btnExaminarTemplate.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.btnExaminarVLCPath.ForeColor = Color.FromArgb(232, 234, 237)
+
+
+            Me.TabPage1.BackColor = Color.FromArgb(32, 33, 36)
+            Me.TabPage1.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.TabPage1.BorderStyle = BorderStyle.None
+
+            Me.LinkLabel1.LinkColor = Color.DarkCyan
+            Me.linkDownloadVLC.LinkColor = Color.DarkCyan
+            Me.linkUltConfig.LinkColor = Color.DarkCyan
+            Me.linkApagarPC.LinkColor = Color.DarkCyan
+
+            Me.GroupBox.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox1.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox2.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox3.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox4.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox5.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox6.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox7.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox8.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.ConexionGroup.ForeColor = Color.FromArgb(188, 192, 195)
+
+            Me.txtConFic.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtDescSimult.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtKeyList.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtLimiteVelocidadKBs.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtPassword.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtPeriodoReintento.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtProxyIP.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtProxyName.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtProxyPassword.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtProxyPort.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtRuta.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtServidorWebNombre.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtServidorWebPassword.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtServidorWebPort.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtServidorWebTemplate.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtServidorWebTimeout.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtStreamingPort.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtTamanoBuffer.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtTamanoPaquete.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtUsuario.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtVLCPath.BackColor = Color.FromArgb(48, 49, 52)
+
+            Me.txtConFic.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtDescSimult.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtKeyList.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtLimiteVelocidadKBs.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtPassword.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtPeriodoReintento.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtProxyIP.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtProxyName.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtProxyPassword.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtProxyPort.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtRuta.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtServidorWebNombre.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtServidorWebPassword.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtServidorWebPort.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtServidorWebTemplate.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtServidorWebTimeout.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtStreamingPort.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtTamanoBuffer.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtTamanoPaquete.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtUsuario.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtVLCPath.ForeColor = Color.FromArgb(232, 234, 237)
+
+
+            Me.txtConFic.BorderStyle = BorderStyle.None
+            Me.txtDescSimult.BorderStyle = BorderStyle.None
+            Me.txtKeyList.BorderStyle = BorderStyle.None
+            Me.txtLimiteVelocidadKBs.BorderStyle = BorderStyle.None
+            Me.txtPassword.BorderStyle = BorderStyle.None
+            Me.txtPeriodoReintento.BorderStyle = BorderStyle.None
+            Me.txtProxyIP.BorderStyle = BorderStyle.None
+            Me.txtProxyName.BorderStyle = BorderStyle.None
+            Me.txtProxyPassword.BorderStyle = BorderStyle.None
+            Me.txtProxyPort.BorderStyle = BorderStyle.None
+            Me.txtRuta.BorderStyle = BorderStyle.None
+            Me.txtServidorWebNombre.BorderStyle = BorderStyle.None
+            Me.txtServidorWebPassword.BorderStyle = BorderStyle.None
+            Me.txtServidorWebPort.BorderStyle = BorderStyle.None
+            Me.txtServidorWebTemplate.BorderStyle = BorderStyle.None
+            Me.txtServidorWebTimeout.BorderStyle = BorderStyle.None
+            Me.txtStreamingPort.BorderStyle = BorderStyle.None
+            Me.txtTamanoBuffer.BorderStyle = BorderStyle.None
+            Me.txtTamanoPaquete.BorderStyle = BorderStyle.None
+            Me.txtUsuario.BorderStyle = BorderStyle.None
+            Me.txtVLCPath.BorderStyle = BorderStyle.None
+
+
+            Me.TabPage2.BackColor = Color.FromArgb(32, 33, 36)
+            Me.TabPage2.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.TabPage2.BorderStyle = BorderStyle.None
+
+            Me.TabPage3.BackColor = Color.FromArgb(32, 33, 36)
+            Me.TabPage3.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.TabPage3.BorderStyle = BorderStyle.None
+            Me.txtKeyList.BackColor = Color.FromArgb(32, 33, 36)
+            Me.txtKeyList.ForeColor = Color.White
+
+            Me.TabPage4.BackColor = Color.FromArgb(32, 33, 36)
+            Me.TabPage4.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.TabPage4.BorderStyle = BorderStyle.None
+
+            Me.TabPage5.BackColor = Color.FromArgb(32, 33, 36)
+            Me.TabPage5.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.TabPage5.BorderStyle = BorderStyle.None
+
+
+            'ECL Ultima pestaña
+
+            Me.ElcAccountControl.btnELCAccountAddNew.BackColor = Color.FromArgb(52, 53, 56)
+            Me.ElcAccountControl.btnELCAccountAddNew.ForeColor = Color.FromArgb(232, 234, 237)
+
+            Me.ElcAccountControl.btnELCAccountDelete.BackColor = Color.FromArgb(52, 53, 56)
+            Me.ElcAccountControl.btnELCAccountDelete.ForeColor = Color.FromArgb(232, 234, 237)
+
+            Me.ElcAccountControl.btnELCAccountModify.BackColor = Color.FromArgb(52, 53, 56)
+            Me.ElcAccountControl.btnELCAccountModify.ForeColor = Color.FromArgb(232, 234, 237)
+
+            Me.ElcAccountControl.GroupBox10.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.ElcAccountControl.GroupBox8.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.ElcAccountControl.GroupBox9.ForeColor = Color.FromArgb(188, 192, 195)
+
+            Me.ElcAccountControl.txtELCAccountAlias.BackColor = Color.FromArgb(48, 49, 52)
+            Me.ElcAccountControl.txtELCAccountKey.BackColor = Color.FromArgb(48, 49, 52)
+            Me.ElcAccountControl.txtELCAccountURL.BackColor = Color.FromArgb(48, 49, 52)
+            Me.ElcAccountControl.txtELCAccountUser.BackColor = Color.FromArgb(48, 49, 52)
+            Me.ElcAccountControl.dgELCUsers.BackgroundColor = Color.FromArgb(48, 49, 52)
+
+            Me.ElcAccountControl.txtELCAccountAlias.ForeColor = Color.White
+            Me.ElcAccountControl.txtELCAccountKey.ForeColor = Color.White
+            Me.ElcAccountControl.txtELCAccountURL.ForeColor = Color.White
+            Me.ElcAccountControl.txtELCAccountUser.ForeColor = Color.White
+
+            Me.ElcAccountControl.txtELCAccountAlias.BorderStyle = BorderStyle.None
+            Me.ElcAccountControl.txtELCAccountKey.BorderStyle = BorderStyle.None
+            Me.ElcAccountControl.txtELCAccountURL.BorderStyle = BorderStyle.None
+            Me.ElcAccountControl.txtELCAccountUser.BorderStyle = BorderStyle.None
+
+            Me.ElcAccountControl.dgELCUsers.GridColor = Color.White
+            Me.ElcAccountControl.dgELCUsers.BorderStyle = BorderStyle.FixedSingle
+
+            Me.ElcAccountControl.lklELCAliasAccount.LinkColor = Color.DarkCyan
+            Me.ElcAccountControl.lklELCMainAccount.LinkColor = Color.DarkCyan
+            Me.ElcAccountControl.lklELCShowPassword.LinkColor = Color.DarkCyan
+            Me.ElcAccountControl.lklELCUrl.LinkColor = Color.DarkCyan
+
+        End If
+
+
+
+
 
         Translate()
 
@@ -81,6 +255,9 @@ Public Class Configuration
         End If
 
         chkReintentarError.Checked = Config.ResetearErrores
+
+        chkTema.Checked = Config.Tema
+
         If Config.ResetearErrores Then
             txtPeriodoReintento.Text = Config.ResetearErroresPeriodoMinutos.ToString
         End If
@@ -145,8 +322,8 @@ Public Class Configuration
 
     End Sub
 
-    Private Sub Configuration_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        elcAccountControl.Cerrar()
+    Private Sub Configuration_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
+        ElcAccountControl.Cerrar()
     End Sub
 
     Private Sub Translate()
@@ -282,7 +459,7 @@ Public Class Configuration
 
         If (PeriodoReintentosError < 1 Or PeriodoReintentosError > 999) Then
             If chkReintentarError.Checked Then
-                MessageBox.Show(Language.GetText("Must specify the retry period, and this value must be between %A and %B").Replace("%A", "1").Replace("%B", "999"), _
+                MessageBox.Show(Language.GetText("Must specify the retry period, and this value must be between %A and %B").Replace("%A", "1").Replace("%B", "999"),
                                 Language.GetText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             Else
@@ -328,14 +505,14 @@ Public Class Configuration
             MessageBox.Show(Language.GetText("Invalid server port"), Language.GetText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf servidorWebTimeout < 0 Or servidorWebTimeout > 99 Or String.IsNullOrEmpty(txtServidorWebTimeout.Text) Then
-            MessageBox.Show(Language.GetText("The value for interrumpting the session must be between 0 and %A. A value of 0 means that session is not interrupted").Replace("%A", "99"), _
+            MessageBox.Show(Language.GetText("The value for interrumpting the session must be between 0 and %A. A value of 0 means that session is not interrupted").Replace("%A", "99"),
                             Language.GetText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf Not String.IsNullOrEmpty(txtServidorWebTemplate.Text) AndAlso Not IO.File.Exists(txtServidorWebTemplate.Text) Then
             MessageBox.Show(Language.GetText("The template path is not valid"), Language.GetText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf String.IsNullOrEmpty(txtServidorWebPassword.Text) AndAlso txtServidorWebPassword.Text.Length < 8 Then
-            MessageBox.Show(Language.GetText("The web server password must have at least %A characters").Replace("%A", "8"), _
+            MessageBox.Show(Language.GetText("The web server password must have at least %A characters").Replace("%A", "8"),
                             Language.GetText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
@@ -387,6 +564,9 @@ Public Class Configuration
         Config.ProxyPort = ProxyPort
         Config.ProxyIP = txtProxyIP.Text
         Config.LimiteVelocidadKBs = LimiteVelocidad
+
+
+        Config.Tema = chkTema.Checked
 
         Config.ServidorStreamingActivo = chkStreamingServer.Checked
         Config.ServidorStreamingPuerto = servidorStreamingPuerto
@@ -478,7 +658,7 @@ Public Class Configuration
     Private Function MsgMaxConexiones() As String
         Return Language.GetText("Number of connection explanation")
     End Function
-                        
+
 
     Private Sub LinkLabel1_MouseHover(sender As Object, e As System.EventArgs) Handles LinkLabel1.MouseHover
         t = New ToolTip
@@ -629,4 +809,8 @@ Public Class Configuration
         txtPeriodoReintento.Enabled = chkReintentarError.Checked
     End Sub
 
+
+    Private Sub TabControl1_rawItem(sender As Object, e As DrawItemEventArgs)
+
+    End Sub
 End Class

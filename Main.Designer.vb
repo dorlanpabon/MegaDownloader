@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Main
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Main
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ListaDescargas = New BrightIdeasSoftware.TreeListView()
@@ -169,9 +169,9 @@ Partial Class Main
         Me.PanelButtonsRight.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PanelButtonsRight.Controls.Add(Me.btnCollaborate)
         Me.PanelButtonsRight.Controls.Add(Me.btnConfig)
-        Me.PanelButtonsRight.Location = New System.Drawing.Point(512, 3)
+        Me.PanelButtonsRight.Location = New System.Drawing.Point(561, 3)
         Me.PanelButtonsRight.Name = "PanelButtonsRight"
-        Me.PanelButtonsRight.Size = New System.Drawing.Size(80, 34)
+        Me.PanelButtonsRight.Size = New System.Drawing.Size(80, 31)
         Me.PanelButtonsRight.TabIndex = 0
         '
         'btnCollaborate
@@ -368,19 +368,20 @@ Partial Class Main
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 371.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 420.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.btnPlay, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnPause, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnStop, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btnAddLink, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.btnUpdate, 4, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.PanelButtonsRight, 5, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnUpdate, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnAddLink, 3, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(9, 0, 9, 0)
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(604, 40)
         Me.TableLayoutPanel1.TabIndex = 4
         '
@@ -388,7 +389,7 @@ Partial Class Main
         '
         Me.btnPlay.Location = New System.Drawing.Point(12, 3)
         Me.btnPlay.Name = "btnPlay"
-        Me.btnPlay.Size = New System.Drawing.Size(34, 34)
+        Me.btnPlay.Size = New System.Drawing.Size(34, 31)
         Me.btnPlay.TabIndex = 1
         Me.ToolTipBotones.SetToolTip(Me.btnPlay, "Iniciar descargas")
         Me.btnPlay.UseVisualStyleBackColor = True
@@ -397,7 +398,7 @@ Partial Class Main
         '
         Me.btnPause.Location = New System.Drawing.Point(52, 3)
         Me.btnPause.Name = "btnPause"
-        Me.btnPause.Size = New System.Drawing.Size(34, 34)
+        Me.btnPause.Size = New System.Drawing.Size(34, 31)
         Me.btnPause.TabIndex = 2
         Me.ToolTipBotones.SetToolTip(Me.btnPause, "Pausar descargas")
         Me.btnPause.UseVisualStyleBackColor = True
@@ -406,7 +407,7 @@ Partial Class Main
         '
         Me.btnStop.Location = New System.Drawing.Point(92, 3)
         Me.btnStop.Name = "btnStop"
-        Me.btnStop.Size = New System.Drawing.Size(34, 34)
+        Me.btnStop.Size = New System.Drawing.Size(34, 31)
         Me.btnStop.TabIndex = 3
         Me.ToolTipBotones.SetToolTip(Me.btnStop, "Detener descargas")
         Me.btnStop.UseVisualStyleBackColor = True
@@ -416,7 +417,7 @@ Partial Class Main
         Me.btnAddLink.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAddLink.Location = New System.Drawing.Point(147, 3)
         Me.btnAddLink.Name = "btnAddLink"
-        Me.btnAddLink.Size = New System.Drawing.Size(34, 34)
+        Me.btnAddLink.Size = New System.Drawing.Size(34, 31)
         Me.btnAddLink.TabIndex = 4
         Me.ToolTipBotones.SetToolTip(Me.btnAddLink, "Agregar links")
         Me.btnAddLink.UseVisualStyleBackColor = True
@@ -424,20 +425,26 @@ Partial Class Main
         'btnUpdate
         '
         Me.btnUpdate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnUpdate.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnUpdate.Location = New System.Drawing.Point(187, 3)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(34, 34)
+        Me.btnUpdate.Size = New System.Drawing.Size(34, 31)
         Me.btnUpdate.TabIndex = 6
         Me.ToolTipBotones.SetToolTip(Me.btnUpdate, "Existe una versión nueva de Megadownloader, haga click aquí para descargarla")
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
         'StatusStrip1
         '
+        Me.StatusStrip1.AccessibleRole = System.Windows.Forms.AccessibleRole.None
+        Me.StatusStrip1.GripMargin = New System.Windows.Forms.Padding(0)
+        Me.StatusStrip1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StatusToolStripStatusLabel, Me.RAMProcToolStripStatusLabel})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 360)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StatusStrip1.Size = New System.Drawing.Size(604, 22)
+        Me.StatusStrip1.SizingGrip = False
+        Me.StatusStrip1.Stretch = False
         Me.StatusStrip1.TabIndex = 5
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -467,6 +474,7 @@ Partial Class Main
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.ListaDescargas)
+        Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
         Me.MinimumSize = New System.Drawing.Size(410, 250)
         Me.Name = "Main"

@@ -64,6 +64,7 @@ Partial Class Configuration
         Me.Label13 = New System.Windows.Forms.Label()
         Me.chkProxy = New System.Windows.Forms.CheckBox()
         Me.ConexionGroup = New System.Windows.Forms.GroupBox()
+        Me.chkTema = New System.Windows.Forms.CheckBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtLimiteVelocidadKBs = New System.Windows.Forms.TextBox()
         Me.chkLimitarVelocidad = New System.Windows.Forms.CheckBox()
@@ -383,6 +384,7 @@ Partial Class Configuration
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.btnCancel.Location = New System.Drawing.Point(556, 432)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(0)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 1
@@ -394,6 +396,7 @@ Partial Class Configuration
         Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnGuardar.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.btnGuardar.Location = New System.Drawing.Point(9, 432)
+        Me.btnGuardar.Margin = New System.Windows.Forms.Padding(0)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(75, 23)
         Me.btnGuardar.TabIndex = 0
@@ -561,6 +564,7 @@ Partial Class Configuration
         '
         'ConexionGroup
         '
+        Me.ConexionGroup.Controls.Add(Me.chkTema)
         Me.ConexionGroup.Controls.Add(Me.Label15)
         Me.ConexionGroup.Controls.Add(Me.txtLimiteVelocidadKBs)
         Me.ConexionGroup.Controls.Add(Me.chkLimitarVelocidad)
@@ -578,6 +582,17 @@ Partial Class Configuration
         Me.ConexionGroup.TabIndex = 2
         Me.ConexionGroup.TabStop = False
         Me.ConexionGroup.Text = "Conexión"
+        '
+        'chkTema
+        '
+        Me.chkTema.AutoSize = True
+        Me.chkTema.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.chkTema.Location = New System.Drawing.Point(9, 87)
+        Me.chkTema.Name = "chkTema"
+        Me.chkTema.Size = New System.Drawing.Size(90, 17)
+        Me.chkTema.TabIndex = 11
+        Me.chkTema.Text = "Tema Oscuro"
+        Me.chkTema.UseVisualStyleBackColor = True
         '
         'Label15
         '
@@ -713,7 +728,9 @@ Partial Class Configuration
         Me.TabControl1.Controls.Add(Me.TabPage4)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Location = New System.Drawing.Point(10, 12)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.Padding = New System.Drawing.Point(0, 0)
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(621, 408)
         Me.TabControl1.TabIndex = 0
@@ -1176,10 +1193,8 @@ Partial Class Configuration
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnCancel)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
         Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
-        Me.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Configuration"
@@ -1309,4 +1324,5 @@ Partial Class Configuration
     Friend WithEvents txtStreamingPassword As System.Windows.Forms.TextBox
     Friend WithEvents lblStreamingPassword As System.Windows.Forms.Label
     Friend WithEvents chkCheckUpdates As System.Windows.Forms.CheckBox
+    Friend WithEvents chkTema As CheckBox
 End Class

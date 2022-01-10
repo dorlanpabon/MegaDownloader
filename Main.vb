@@ -193,6 +193,48 @@ Public Class Main
         Log.SetLogLevel = Config.NivelLog
         Language.InitLanguage(Config.Idioma)
 
+        If Config.Tema Then
+
+
+            Me.ToolTipBotones.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.MenuDescarga.BackColor = Color.FromArgb(52, 53, 56)
+            Me.MenuMinimizado.BackColor = Color.FromArgb(52, 53, 56)
+            Me.MenuPanel.BackColor = Color.FromArgb(52, 53, 56)
+            Me.MenuDescarga.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.BackColor = Color.FromArgb(32, 33, 36)
+            Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+
+            Me.ListaDescargas.BackColor = Color.FromArgb(32, 33, 36)
+            Me.ListaDescargas.ForeColor = Color.FromArgb(188, 192, 195)
+
+
+            Me.ListaDescargas.AlternateRowBackColor = Color.FromArgb(32, 33, 36)
+
+            Me.ListaDescargas.HighlightBackgroundColor = Color.DarkOrange
+
+            Me.ListaDescargas.HighlightForegroundColor = Color.White
+
+            Me.ListaDescargas.UnfocusedHighlightBackgroundColor = Color.DarkGray
+
+            Me.ListaDescargas.UnfocusedHighlightForegroundColor = Color.White
+
+            Me.ListaDescargas.BorderStyle = BorderStyle.Fixed3D
+
+
+            Dim headerstyle = New HeaderFormatStyle()
+            headerstyle.SetBackColor(Color.FromArgb(32, 33, 36))
+            headerstyle.SetForeColor(Color.FromArgb(188, 192, 195))
+
+
+            Me.ListaDescargas.HeaderFormatStyle = headerstyle
+            Me.ListaDescargas.HeaderUsesThemes = False
+
+
+        End If
+
         Dim Silent As Boolean = IsSilent()
 
         Dim s As SplashScreen = Nothing
@@ -318,7 +360,7 @@ Public Class Main
 
         If Config.ConfigUI.AltoVentanaPrincipal > 0 And Config.ConfigUI.AnchoVentanaPrincipal > 0 Then
             Log.WriteDebug("Window size - X: " & Config.ConfigUI.AnchoVentanaPrincipal & " Y:" & Config.ConfigUI.AltoVentanaPrincipal)
-            Me.Size = New System.Drawing.Size(Config.ConfigUI.AnchoVentanaPrincipal, _
+            Me.Size = New System.Drawing.Size(Config.ConfigUI.AnchoVentanaPrincipal,
                                               Config.ConfigUI.AltoVentanaPrincipal)
             Me.StartPosition = FormStartPosition.CenterScreen
             Main_Resize(Nothing, Nothing)
@@ -409,31 +451,32 @@ Public Class Main
         Dim Archivo As MenuItem = Menu.MenuItems.Add(Language.GetText("&File"))
 
         Dim OpenDLC As MenuItem = New MenuItem(Language.GetText("Open &DLC"))
-        AddHandler (OpenDLC.Click), AddressOf OpenDLC_Click
+        AddHandler(OpenDLC.Click), AddressOf OpenDLC_Click
 
         Dim Salir As MenuItem = New MenuItem(Language.GetText("E&xit"))
-        AddHandler (Salir.Click), AddressOf CerrarToolStripMenuItem_Click
+        AddHandler(Salir.Click), AddressOf CerrarToolStripMenuItem_Click
 
         Archivo.MenuItems.Add(OpenDLC)
         Archivo.MenuItems.Add("-")
         Archivo.MenuItems.Add(Salir)
 
+
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
         Dim ColaExtraccion As MenuItem = New MenuItem(Language.GetText("See extraction &queue"))
-        AddHandler (ColaExtraccion.Click), AddressOf VerDescompresor_Click
+        AddHandler(ColaExtraccion.Click), AddressOf VerDescompresor_Click
 
         Dim Configuracion As MenuItem = New MenuItem(Language.GetText("&Configuration"))
-        AddHandler (Configuracion.Click), AddressOf btnConfig_Click
+        AddHandler(Configuracion.Click), AddressOf btnConfig_Click
 
         Dim VerLogs As MenuItem = New MenuItem(Language.GetText("See lo&gs"))
-        AddHandler (VerLogs.Click), AddressOf VerLogs_Click
+        AddHandler(VerLogs.Click), AddressOf VerLogs_Click
 
         Dim CodificarEnlaces As MenuItem = New MenuItem(Language.GetText("Encode lin&ks"))
-        AddHandler (CodificarEnlaces.Click), AddressOf CodificarEnlaces_Click
+        AddHandler(CodificarEnlaces.Click), AddressOf CodificarEnlaces_Click
 
         Dim GenerateELC As MenuItem = New MenuItem(Language.GetText("Generat&e ELC"))
-        AddHandler (GenerateELC.Click), AddressOf GenerateELC_Click
+        AddHandler(GenerateELC.Click), AddressOf GenerateELC_Click
 
         Dim Stegano As MenuItem = New MenuItem(Language.GetText("Steganograph&y"))
 
@@ -446,7 +489,7 @@ Public Class Main
             Opciones.MenuItems.Add("-")
             For Each searcher In searcherList
                 Dim Buscador As MenuItem = New MenuItem(searcher.Key)
-                AddHandler (Buscador.Click), AddressOf Buscador_Click
+                AddHandler(Buscador.Click), AddressOf Buscador_Click
                 Buscadores.MenuItems.Add(Buscador)
             Next
         End If
@@ -463,9 +506,9 @@ Public Class Main
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
         Dim CreateStegano As MenuItem = New MenuItem(Language.GetText("&Hide links inside an image"))
-        AddHandler (CreateStegano.Click), AddressOf CreateStegano_Click
+        AddHandler(CreateStegano.Click), AddressOf CreateStegano_Click
         Dim UseStegano As MenuItem = New MenuItem(Language.GetText("&Retrieve links from an image"))
-        AddHandler (UseStegano.Click), AddressOf UseStegano_Click
+        AddHandler(UseStegano.Click), AddressOf UseStegano_Click
 
         Stegano.MenuItems.Add(CreateStegano)
         Stegano.MenuItems.Add(UseStegano)
@@ -473,13 +516,13 @@ Public Class Main
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
         Dim VerStreaming As MenuItem = New MenuItem(Language.GetText("Watch &Online"))
-        AddHandler (VerStreaming.Click), AddressOf VerStreaming_Click
+        AddHandler(VerStreaming.Click), AddressOf VerStreaming_Click
 
         Dim LibraryManager As MenuItem = New MenuItem(Language.GetText("Manage Streaming &Library"))
-        AddHandler (LibraryManager.Click), AddressOf LibraryManager_Click
+        AddHandler(LibraryManager.Click), AddressOf LibraryManager_Click
 
         Dim SeeLibraryManager As MenuItem = New MenuItem(Language.GetText("See Streaming &Library"))
-        AddHandler (SeeLibraryManager.Click), AddressOf SeeLibraryManager_Click
+        AddHandler(SeeLibraryManager.Click), AddressOf SeeLibraryManager_Click
 
         Dim Streaming As MenuItem = Menu.MenuItems.Add(Language.GetText("&Streaming"))
         Streaming.MenuItems.Add(VerStreaming)
@@ -491,17 +534,17 @@ Public Class Main
         ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
         Dim FAQ As New MenuItem(Language.GetText("FA&Q"))
-        AddHandler (FAQ.Click), AddressOf FAQ_Click
+        AddHandler(FAQ.Click), AddressOf FAQ_Click
 
         Dim GetMegaUploader As New MenuItem(Language.GetText("Get MegaUploa&der"))
-        AddHandler (GetMegaUploader.Click), AddressOf GetMegaUploader_Click
+        AddHandler(GetMegaUploader.Click), AddressOf GetMegaUploader_Click
         Dim About As New MenuItem(Language.GetText("&About"))
-        AddHandler (About.Click), AddressOf About_Click
+        AddHandler(About.Click), AddressOf About_Click
         'Dim Colabora As New MenuItem(Language.GetText("&Collaborate"))
         'AddHandler (Colabora.Click), AddressOf Collaborate_Click
 
         Dim CheckUpdates As New MenuItem(Language.GetText("Chec&k for updates"))
-        AddHandler (CheckUpdates.Click), AddressOf CheckUpdates_Click
+        AddHandler(CheckUpdates.Click), AddressOf CheckUpdates_Click
 
         Dim Ayuda As MenuItem = Menu.MenuItems.Add(Language.GetText("&Help"))
         Ayuda.MenuItems.Add(CheckUpdates)
@@ -510,6 +553,7 @@ Public Class Main
         Ayuda.MenuItems.Add(GetMegaUploader)
         Ayuda.MenuItems.Add("-")
         Ayuda.MenuItems.Add(About)
+
 
     End Sub
 
@@ -650,7 +694,7 @@ Public Class Main
         Dim msjCerrar As String = Language.GetText("Do you want to exit?")
         Dim comp As DescompresorController = DescompresorController.GetController
         If comp.Ocupado Then
-            msjCerrar = Language.GetText("Files extracting, corruption danger") & vbNewLine & _
+            msjCerrar = Language.GetText("Files extracting, corruption danger") & vbNewLine &
                         msjCerrar
         End If
 
@@ -902,8 +946,8 @@ Public Class Main
         ListaDescargas.AllowColumnReorder = True
 
         ListaDescargas.CanExpandGetter = Function(ele As Object)
-                                             Return TypeOf (ele) Is Paquete AndAlso _
-                                               CType(ele, Paquete).ListaFicheros IsNot Nothing AndAlso _
+                                             Return TypeOf (ele) Is Paquete AndAlso
+                                               CType(ele, Paquete).ListaFicheros IsNot Nothing AndAlso
                                                CType(ele, Paquete).ListaFicheros.Count > 0
                                          End Function
 
@@ -932,16 +976,48 @@ Public Class Main
         InitializeColumnWidths()
     End Sub
     Private Sub ListaDescargas_FormatRow(sender As Object, e As BrightIdeasSoftware.FormatRowEventArgs) Handles ListaDescargas.FormatRow
+
         If e.DisplayIndex Mod 2 = 0 Then
-            e.Item.BackColor = Color.White
+            If Config.Tema Then
+                e.Item.BackColor = Color.FromArgb(32, 33, 36)
+            Else
+
+                e.Item.BackColor = Color.White
+            End If
+
         Else
-            e.Item.BackColor = Color.Honeydew
+
+            If Config.Tema Then
+
+                e.Item.BackColor = Color.FromArgb(45, 46, 49)
+
+
+            Else
+
+                e.Item.BackColor = Color.Honeydew
+            End If
         End If
         Dim desc As IDescarga = CType(e.Model, IDescarga)
         If desc.DescargaEstado = Estado.Erroneo Then
-            e.Item.ForeColor = Color.Red
+
+            If Config.Tema Then
+
+                e.Item.BackColor = Color.FromArgb(95, 96, 99)
+                e.Item.ForeColor = Color.DarkRed
+            Else
+
+                e.Item.ForeColor = Color.Red
+            End If
+
         ElseIf desc.DescargaEstado = Estado.Completado Then
-            e.Item.ForeColor = Color.Green
+
+            If Config.Tema Then
+
+                e.Item.ForeColor = Color.DarkGreen
+            Else
+
+                e.Item.ForeColor = Color.Green
+            End If
         End If
     End Sub
     Private Function PintarVelocidadDescarga(ele As IDescarga) As String
@@ -1011,7 +1087,7 @@ Public Class Main
 
         GuardarFicheroDescargas()
         If Not AgregadoDesdeServidorWeb Then RestaurarVentana()
-   
+
     End Sub
 
     ''' <summary>
@@ -1048,8 +1124,8 @@ Public Class Main
 
                     ' Lo cogemos de configuracion, pero por defecto ponemos cada hora
                     Dim SegundosProximaActualizacion As Integer = 3600
-                    If Not Integer.TryParse( _
-                                            InternalConfiguration.ObtenerValueFromInternalConfig("VERSION_PERIODO_REFRESCO_SEG"), _
+                    If Not Integer.TryParse(
+                                            InternalConfiguration.ObtenerValueFromInternalConfig("VERSION_PERIODO_REFRESCO_SEG"),
                                             SegundosProximaActualizacion) Then
                         SegundosProximaActualizacion = 3600
                     End If
@@ -1081,8 +1157,8 @@ Public Class Main
                 ' Aprovechamos y hacemos un flush de memoria ya que este worker no hace mucho trabajo
                 If Me.ProximoFlushMemoria < Now Then
                     Dim FrecFlush As Integer = 60
-                    If Not Integer.TryParse( _
-                                            InternalConfiguration.ObtenerValueFromInternalConfig("FLUSH_MEMORY_PERIODO_REFRESCO_SEG"), _
+                    If Not Integer.TryParse(
+                                            InternalConfiguration.ObtenerValueFromInternalConfig("FLUSH_MEMORY_PERIODO_REFRESCO_SEG"),
                                             FrecFlush) Then
                         FrecFlush = 60
                     End If
@@ -1114,8 +1190,8 @@ Public Class Main
             Log.WriteWarning("Starting worker bgwActualizadorDatosDisco")
             While Not worker.CancellationPending
 
-				Dim FicheroActualizar As Fichero = Nothing
-				Dim PaqueteDelFicheroActualizar As Paquete = Nothing
+                Dim FicheroActualizar As Fichero = Nothing
+                Dim PaqueteDelFicheroActualizar As Paquete = Nothing
                 Dim TiempoDormir As Integer = 250
 
                 If Not NecesitaCambiarUsuarioYPassword Then
@@ -1125,8 +1201,8 @@ Public Class Main
                         For Each paq As Paquete In Me.ListaPaquetes
                             For Each fic As Fichero In paq.ListaFicheros
                                 If fic.DescargaProcesada = False And fic.DescargaEstado <> Estado.Erroneo Then
-                                	FicheroActualizar = fic
-                                	PaqueteDelFicheroActualizar = paq
+                                    FicheroActualizar = fic
+                                    PaqueteDelFicheroActualizar = paq
                                     Exit Try
                                 End If
                             Next
@@ -1148,25 +1224,25 @@ Public Class Main
                         ElseIf Err = Conexion.TipoError.SinErrores Then
                             ' Guardamos!!
                             PeticionGuardadoFichero = Now
-                            
-                        	If FicheroActualizar.DescargaProcesada And PaqueteDelFicheroActualizar.PendienteNombrePaquete Then
-                        		PaqueteDelFicheroActualizar.PendienteNombrePaquete = false
-                        		PaqueteDelFicheroActualizar.Nombre = FicheroActualizar.ObtenerNombreSinExtension
-                        		If PaqueteDelFicheroActualizar.CrearSubdirectorio Then
-                        			Try
-                        				PaqueteDelFicheroActualizar.RutaLocal = System.IO.Path.Combine(PaqueteDelFicheroActualizar.RutaLocal, PaqueteDelFicheroActualizar.Nombre)
-                        				System.IO.Directory.CreateDirectory(PaqueteDelFicheroActualizar.RutaLocal)
-		                            	For Each fic As Fichero In PaqueteDelFicheroActualizar.ListaFicheros
-		                            		If Not fic.DescargaComenzada Then
-		                            			fic.RutaLocal = PaqueteDelFicheroActualizar.RutaLocal
-		                            		End If
-		                            	Next
-		                            Catch ex As Exception
-		                            	Log.WriteError("Error while creating directory for package " & PaqueteDelFicheroActualizar.Nombre & ": " & ex.ToString)
-		                            	MessageBox.Show("Error creating directory: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-		                            End Try			                            	
-                            	End if
-                            End If                            
+
+                            If FicheroActualizar.DescargaProcesada And PaqueteDelFicheroActualizar.PendienteNombrePaquete Then
+                                PaqueteDelFicheroActualizar.PendienteNombrePaquete = False
+                                PaqueteDelFicheroActualizar.Nombre = FicheroActualizar.ObtenerNombreSinExtension
+                                If PaqueteDelFicheroActualizar.CrearSubdirectorio Then
+                                    Try
+                                        PaqueteDelFicheroActualizar.RutaLocal = System.IO.Path.Combine(PaqueteDelFicheroActualizar.RutaLocal, PaqueteDelFicheroActualizar.Nombre)
+                                        System.IO.Directory.CreateDirectory(PaqueteDelFicheroActualizar.RutaLocal)
+                                        For Each fic As Fichero In PaqueteDelFicheroActualizar.ListaFicheros
+                                            If Not fic.DescargaComenzada Then
+                                                fic.RutaLocal = PaqueteDelFicheroActualizar.RutaLocal
+                                            End If
+                                        Next
+                                    Catch ex As Exception
+                                        Log.WriteError("Error while creating directory for package " & PaqueteDelFicheroActualizar.Nombre & ": " & ex.ToString)
+                                        MessageBox.Show("Error creating directory: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    End Try
+                                End If
+                            End If
                         Else
                             Log.WriteWarning("Error retrieving file info " & FicheroActualizar.FileID & ": " & Err.ToString)
                         End If
@@ -1179,16 +1255,16 @@ Public Class Main
                     ' (si un proceso pide 10 veces seguidas que se guarde, solo se guardará una vez, 
                     ' no 10 veces, lo cual es innecesario)
 
-                    If UltimoGuardadoFichero.AddSeconds(5) < Now Or ( _
-                       UltimoGuardadoFichero < PeticionGuardadoFichero And _
+                    If UltimoGuardadoFichero.AddSeconds(5) < Now Or (
+                       UltimoGuardadoFichero < PeticionGuardadoFichero And
                        PeticionGuardadoFichero.AddMilliseconds(400) < Now) Then
 
                         GuardarFicheroDescargas()
 
                     End If
 
-                    If UltimoGuardadoConfig.AddSeconds(5) < Now Or ( _
-                      UltimoGuardadoConfig < PeticionGuardadoConfig And _
+                    If UltimoGuardadoConfig.AddSeconds(5) < Now Or (
+                      UltimoGuardadoConfig < PeticionGuardadoConfig And
                       PeticionGuardadoConfig.AddMilliseconds(400) < Now) Then
 
                         Me.Config.GuardarXML(False)
@@ -1244,17 +1320,17 @@ Public Class Main
                         For Each fic As Fichero In paq.ListaFicheros
 
                             fic.ActualizarDatosDescarga()
-                            If fic.EstadoDescarga = Estado.Descargando Or _
-                               fic.EstadoDescarga = Estado.CreandoLocal Or _
+                            If fic.EstadoDescarga = Estado.Descargando Or
+                               fic.EstadoDescarga = Estado.CreandoLocal Or
                                fic.EstadoDescarga = Estado.Verificando Then
                                 Me.NumDescargasActivas += 1
-                            ElseIf fic.EstadoDescarga = Estado.EnCola Or _
+                            ElseIf fic.EstadoDescarga = Estado.EnCola Or
                                    fic.EstadoDescarga = Estado.Pausado Then
                                 Me.NumDescargasEnCola += 1
                             ElseIf fic.EstadoDescarga = Estado.Erroneo Then
                                 Me.NumDescargasErroneas += 1
-                            ElseIf fic.EstadoDescarga = Estado.Completado Or _
-                                   fic.EstadoDescarga = Estado.ComprobandoMD5 Or _
+                            ElseIf fic.EstadoDescarga = Estado.Completado Or
+                                   fic.EstadoDescarga = Estado.ComprobandoMD5 Or
                                    fic.EstadoDescarga = Estado.Descomprimiendo Then
                                 Me.NumDescargasCompletadas += 1
 
@@ -1374,7 +1450,7 @@ Public Class Main
             Mutex.ListaDescargas.WaitOne()
             For Each paq As Paquete In Me.ListaPaquetes
                 For Each Fichero As Fichero In paq.ListaFicheros
-                    If Fichero.DescargaEstado = Estado.Erroneo AndAlso _
+                    If Fichero.DescargaEstado = Estado.Erroneo AndAlso
                        (Not Fichero.FechaUltimoError.HasValue OrElse Fichero.FechaUltimoError.Value.AddMinutes(ResetearErroresPeriodo) < Now) Then
                         ColaReseteo.Add(Fichero)
                     End If
@@ -1508,8 +1584,8 @@ Public Class Main
         Mutex.ListaDescargas.WaitOne()
         For Each paq As Paquete In Me.ListaPaquetes
             For Each Fichero As Fichero In paq.ListaFicheros
-                If (Fichero.DescargaEstado = Estado.Descargando And Not Fichero.DescargaIndividual) Or _
-                   Fichero.DescargaEstado = Estado.Pausado Or _
+                If (Fichero.DescargaEstado = Estado.Descargando And Not Fichero.DescargaIndividual) Or
+                   Fichero.DescargaEstado = Estado.Pausado Or
                    Fichero.DescargaEstado = Estado.CreandoLocal Then
                     Log.WriteInfo("Stopping file " & Fichero.NombreFichero)
                     Fichero.Stop()
@@ -1531,7 +1607,7 @@ Public Class Main
             Try
                 For Each paq As Paquete In Me.ListaPaquetes
                     For Each Fichero As Fichero In paq.ListaFicheros
-                        If Fichero.DescargaEstado = Estado.Descargando Or _
+                        If Fichero.DescargaEstado = Estado.Descargando Or
                            Fichero.DescargaEstado = Estado.Pausado Then
                             TodosFinalizados = False
                         End If
@@ -1919,7 +1995,7 @@ Public Class Main
     Private Sub EliminarMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles EliminarMenuItem.Click
         If ListaDescargas.SelectedObjects Is Nothing Then Exit Sub
 
-        If MessageBox.Show(Language.GetText("Do you want to delete the element(s)?") & vbNewLine & Language.GetText("Note: files will NOT be deleted"), _
+        If MessageBox.Show(Language.GetText("Do you want to delete the element(s)?") & vbNewLine & Language.GetText("Note: files will NOT be deleted"),
                            Language.GetText("Confirmation"), MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
@@ -1936,7 +2012,7 @@ Public Class Main
     Private Sub EliminarYBorrarMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles EliminarYBorrarMenuItem.Click
         If ListaDescargas.SelectedObjects Is Nothing Then Exit Sub
 
-        If MessageBox.Show(Language.GetText("Do you want to delete the element(s)?") & vbNewLine & Language.GetText("Note: files will BE deleted"), _
+        If MessageBox.Show(Language.GetText("Do you want to delete the element(s)?") & vbNewLine & Language.GetText("Note: files will BE deleted"),
                          Language.GetText("Confirmation"), MessageBoxButtons.YesNo) = DialogResult.No Then
             Exit Sub
         End If
@@ -2175,9 +2251,9 @@ Public Class Main
             SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1)
         End If
     End Sub
-    Private Declare Function SetProcessWorkingSetSize Lib "kernel32.dll" ( _
-     ByVal process As IntPtr, _
-     ByVal minimumWorkingSetSize As Integer, _
+    Private Declare Function SetProcessWorkingSetSize Lib "kernel32.dll" (
+     ByVal process As IntPtr,
+     ByVal minimumWorkingSetSize As Integer,
      ByVal maximumWorkingSetSize As Integer) As Integer
 
 
@@ -2361,7 +2437,7 @@ Public Class Main
         Else
             If Form.ActiveForm IsNot Nothing AndAlso Form.ActiveForm.Equals(Me) Then
                 ProximoAvisoActualizacion = Date.MaxValue  ' Evitamos que si el usuario no cierra el mensaje vuelva a salir
-                If MessageBox.Show(Language.GetText("New version do you want to download it? Recommended!"), _
+                If MessageBox.Show(Language.GetText("New version do you want to download it? Recommended!"),
                                    Language.GetText("New version available"), MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes Then
                     btnUpdate_Click(Nothing, Nothing)
                     ' Ya no avisamos más al usuario y dejamos Date.MaxValue  
@@ -2956,7 +3032,7 @@ Public Class Main
 
         frmName.ShowDialog(Me)
 
-        Dim openStegano As Boolean =   frmName.OpenSteganoLoadOnExit
+        Dim openStegano As Boolean = frmName.OpenSteganoLoadOnExit
         ' Hasta que no se cierre la ventana no continuamos la ejecución
         frmName.Dispose()
 
@@ -3035,7 +3111,7 @@ Public Class Main
         DLCErrorProcessing = Nothing
 
         If ErrorProcessing IsNot Nothing Then
-            MessageBox.Show(Language.GetText("The DLC could not be loaded. Reason: %REASON").Replace("%REASON", ErrorProcessing.Message), _
+            MessageBox.Show(Language.GetText("The DLC could not be loaded. Reason: %REASON").Replace("%REASON", ErrorProcessing.Message),
                                   Language.GetText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
@@ -3050,7 +3126,7 @@ Public Class Main
             If Not String.IsNullOrEmpty(URLstr) Then
                 AgregarLink(URLstr, String.Empty, True, False)
             ElseIf ErrorProcessing IsNot Nothing Then ' Si hay excepcion, ya hemos enseñado un error antes
-                MessageBox.Show(Language.GetText("The DLC has no valid Mega links"), Language.GetText("Note"), _
+                MessageBox.Show(Language.GetText("The DLC has no valid Mega links"), Language.GetText("Note"),
                        MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
@@ -3066,7 +3142,7 @@ Public Class Main
             DLCResults = Nothing
 
             d = Sub(x As Boolean)
-                    MessageBox.Show(Language.GetText("The DLC could not be loaded. Reason: %REASON").Replace("%REASON", "30s timeout"), _
+                    MessageBox.Show(Language.GetText("The DLC could not be loaded. Reason: %REASON").Replace("%REASON", "30s timeout"),
                                     Language.GetText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Sub
             Me.Invoke(d, True)
@@ -3099,6 +3175,10 @@ Public Class Main
         Finally
             If DLCProcessing Then DLCProcessing = False
         End Try
+    End Sub
+
+    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel1.Paint
+
     End Sub
 
 #End Region
