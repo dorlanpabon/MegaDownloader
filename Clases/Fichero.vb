@@ -282,7 +282,7 @@ Public Class Fichero
 				Me.SetDescargaEstado = Estado.Verificando
 
 				Dim Info As Conexion.InformacionFichero = Conexion.ObtenerInformacionFichero(Config, Me.FileID, Me.FileKey, ComprobacionAntesDescarga)
-				Console.WriteLine(Info)
+				'Console.WriteLine(Info)
 				If Info IsNot Nothing AndAlso Info.Err = Conexion.TipoError.SinErrores Then
 					If Not String.IsNullOrEmpty(Info.URL) Then Me.URLFichero = Info.URL
 					If Info.Tamano > 0 Then Me.TamanoBytes = Info.Tamano

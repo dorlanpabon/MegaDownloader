@@ -66,6 +66,7 @@ Public Class SelectLinks
                 'Console.WriteLine(ficheros.Count)
             End If
             TreeView1.SelectedNode.Remove()
+            DrawTreeViewDel()
             CalcTamanoBytes()
         Catch ex As Exception
             Console.WriteLine(ex.Message)
@@ -132,9 +133,12 @@ Public Class SelectLinks
     Private Sub GetChildNodes(tnode As TreeNode)
 
         Dim nodefull = TreeView1.SelectedNode.FullPath
-        'Iterate through the child nodes of the node passed into this subroutine
 
-        Dim nomr = nodefull.Replace(root + "\", "")
+        Console.WriteLine("Get one ingreso")
+        Dim ext As Regex = New Regex("\\(?<nombre>.*){1}")
+        Dim matt = ext.Match(nodefull)
+        Dim nomr = matt.Groups("nombre").Value
+        'Iterate through the child nodes of the node passed into this subroutine
 
         ficheros.RemoveAll(Function(p) p.RutaRelativa.Contains(nomr))
 
@@ -142,8 +146,11 @@ Public Class SelectLinks
 
     Private Sub GetChildNodesAllNodes(tnode As TreeNode)
         Dim nodefull = TreeView1.SelectedNode.FullPath
+        Console.WriteLine("Get all ingreso")
+        Dim ext As Regex = New Regex("\\(?<nombre>.*){1}")
+        Dim matt = ext.Match(nodefull)
+        Dim nomr = matt.Groups("nombre").Value
         'Iterate through the child nodes of the node passed into this subroutine
-        Dim nomr = nodefull.Replace(root + "\", "")
         ficheros = ficheros.FindAll(Function(p) p.RutaRelativa.Contains(nomr))
 
     End Sub

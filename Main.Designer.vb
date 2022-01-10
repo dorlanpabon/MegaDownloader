@@ -100,6 +100,7 @@ Partial Class Main
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListaDescargas.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumnPrioridad, Me.OlvColumnNombre, Me.OlvColumnDescargado, Me.OlvColumnTamano, Me.OlvColumnEstado, Me.OlvColumnProgreso, Me.OlvColumnVelocidad, Me.OlvColumnEDT})
+        Me.ListaDescargas.HideSelection = False
         Me.ListaDescargas.Location = New System.Drawing.Point(12, 46)
         Me.ListaDescargas.Name = "ListaDescargas"
         Me.ListaDescargas.OwnerDraw = True
@@ -197,117 +198,117 @@ Partial Class Main
         '
         Me.MenuDescarga.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirEnCarpetaToolStripMenuItem, Me.ToolStripSeparator2, Me.SubirPrioridadMenuItem, Me.BajarPrioridadMenuItem, Me.ToolStripSeparator3, Me.ForceDownloadStripMenuItem, Me.PausarStripMenuItem, Me.EliminarMenuItem, Me.EliminarYBorrarMenuItem, Me.ToolStripSeparator1, Me.VerErrorToolStripMenuItem, Me.VerLinksToolStripMenuItem, Me.VerLinksDescToolStripMenuItem, Me.OcultarEnlacesImagenMenuItem, Me.ToolStripSeparator4, Me.VerProgresoDescompresionToolStripMenuItem, Me.ResetToolStripMenuItem, Me.LimpiarCompletados2ToolStripMenuItem, Me.PropiedadesToolStripMenuItem})
         Me.MenuDescarga.Name = "MenuDescarga"
-        Me.MenuDescarga.Size = New System.Drawing.Size(226, 336)
+        Me.MenuDescarga.Size = New System.Drawing.Size(225, 358)
         '
         'AbrirEnCarpetaToolStripMenuItem
         '
         Me.AbrirEnCarpetaToolStripMenuItem.Name = "AbrirEnCarpetaToolStripMenuItem"
-        Me.AbrirEnCarpetaToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.AbrirEnCarpetaToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.AbrirEnCarpetaToolStripMenuItem.Text = "Abrir directorio"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(222, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(221, 6)
         '
         'SubirPrioridadMenuItem
         '
         Me.SubirPrioridadMenuItem.Name = "SubirPrioridadMenuItem"
-        Me.SubirPrioridadMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.SubirPrioridadMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.SubirPrioridadMenuItem.Text = "Subir prioridad"
         '
         'BajarPrioridadMenuItem
         '
         Me.BajarPrioridadMenuItem.Name = "BajarPrioridadMenuItem"
-        Me.BajarPrioridadMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.BajarPrioridadMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.BajarPrioridadMenuItem.Text = "Bajar prioridad"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(222, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(221, 6)
         '
         'ForceDownloadStripMenuItem
         '
         Me.ForceDownloadStripMenuItem.Name = "ForceDownloadStripMenuItem"
-        Me.ForceDownloadStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.ForceDownloadStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.ForceDownloadStripMenuItem.Text = "Forzar descarga"
         '
         'PausarStripMenuItem
         '
         Me.PausarStripMenuItem.Name = "PausarStripMenuItem"
-        Me.PausarStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.PausarStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.PausarStripMenuItem.Text = "Poner en pausa"
         '
         'EliminarMenuItem
         '
         Me.EliminarMenuItem.Name = "EliminarMenuItem"
-        Me.EliminarMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.EliminarMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.EliminarMenuItem.Text = "Eliminar"
         '
         'EliminarYBorrarMenuItem
         '
         Me.EliminarYBorrarMenuItem.Name = "EliminarYBorrarMenuItem"
-        Me.EliminarYBorrarMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.EliminarYBorrarMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.EliminarYBorrarMenuItem.Text = "Eliminar y borrar"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(222, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(221, 6)
         '
         'VerErrorToolStripMenuItem
         '
         Me.VerErrorToolStripMenuItem.Name = "VerErrorToolStripMenuItem"
-        Me.VerErrorToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.VerErrorToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.VerErrorToolStripMenuItem.Text = "Ver error"
         '
         'VerLinksToolStripMenuItem
         '
         Me.VerLinksToolStripMenuItem.Name = "VerLinksToolStripMenuItem"
-        Me.VerLinksToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.VerLinksToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.VerLinksToolStripMenuItem.Text = "Ver links"
         '
         'VerLinksDescToolStripMenuItem
         '
         Me.VerLinksDescToolStripMenuItem.Name = "VerLinksDescToolStripMenuItem"
-        Me.VerLinksDescToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.VerLinksDescToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.VerLinksDescToolStripMenuItem.Text = "Ver links + desc"
         '
         'OcultarEnlacesImagenMenuItem
         '
         Me.OcultarEnlacesImagenMenuItem.Name = "OcultarEnlacesImagenMenuItem"
-        Me.OcultarEnlacesImagenMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.OcultarEnlacesImagenMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.OcultarEnlacesImagenMenuItem.Text = "Ocultar en imagen"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(222, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(221, 6)
         '
         'VerProgresoDescompresionToolStripMenuItem
         '
         Me.VerProgresoDescompresionToolStripMenuItem.Name = "VerProgresoDescompresionToolStripMenuItem"
-        Me.VerProgresoDescompresionToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.VerProgresoDescompresionToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.VerProgresoDescompresionToolStripMenuItem.Text = "Ver progreso descompresión"
         '
         'ResetToolStripMenuItem
         '
         Me.ResetToolStripMenuItem.Name = "ResetToolStripMenuItem"
-        Me.ResetToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.ResetToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.ResetToolStripMenuItem.Text = "Reset"
         '
         'LimpiarCompletados2ToolStripMenuItem
         '
         Me.LimpiarCompletados2ToolStripMenuItem.Name = "LimpiarCompletados2ToolStripMenuItem"
-        Me.LimpiarCompletados2ToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.LimpiarCompletados2ToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.LimpiarCompletados2ToolStripMenuItem.Text = "Limpiar completados"
         '
         'PropiedadesToolStripMenuItem
         '
         Me.PropiedadesToolStripMenuItem.Enabled = False
         Me.PropiedadesToolStripMenuItem.Name = "PropiedadesToolStripMenuItem"
-        Me.PropiedadesToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
+        Me.PropiedadesToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.PropiedadesToolStripMenuItem.Text = "Propiedades"
         '
         'MenuPanel
@@ -367,7 +368,7 @@ Partial Class Main
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 371.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.btnPlay, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnPause, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnStop, 2, 0)

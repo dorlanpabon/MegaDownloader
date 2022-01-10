@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class SelectLinks
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,10 @@ Partial Class SelectLinks
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Carpeta")
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Carpeta")
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SelectLinks))
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.btnAgregar = New System.Windows.Forms.Button()
@@ -39,18 +39,22 @@ Partial Class SelectLinks
         '
         'TreeView1
         '
+        Me.TreeView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TreeView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TreeView1.ForeColor = System.Drawing.SystemColors.WindowFrame
         Me.TreeView1.Location = New System.Drawing.Point(66, 65)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode2.Name = "Nodo0"
-        TreeNode2.Text = "Carpeta"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode2})
+        TreeNode1.Name = "Nodo0"
+        TreeNode1.Text = "Carpeta"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode1})
         Me.TreeView1.Size = New System.Drawing.Size(664, 300)
         Me.TreeView1.TabIndex = 5
         '
         'btnAgregar
         '
+        Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAgregar.Location = New System.Drawing.Point(597, 402)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(133, 23)
@@ -60,6 +64,7 @@ Partial Class SelectLinks
         '
         'BtnDelete_node
         '
+        Me.BtnDelete_node.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnDelete_node.Enabled = False
         Me.BtnDelete_node.Location = New System.Drawing.Point(439, 402)
         Me.BtnDelete_node.Name = "BtnDelete_node"
@@ -83,6 +88,7 @@ Partial Class SelectLinks
         '
         'BtnDelete_all_nodes
         '
+        Me.BtnDelete_all_nodes.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnDelete_all_nodes.Enabled = False
         Me.BtnDelete_all_nodes.Location = New System.Drawing.Point(279, 402)
         Me.BtnDelete_all_nodes.Name = "BtnDelete_all_nodes"
@@ -101,6 +107,7 @@ Partial Class SelectLinks
         '
         'Tamano
         '
+        Me.Tamano.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Tamano.AutoSize = True
         Me.Tamano.Cursor = System.Windows.Forms.Cursors.Default
         Me.Tamano.FlatStyle = System.Windows.Forms.FlatStyle.Popup
@@ -114,6 +121,7 @@ Partial Class SelectLinks
         '
         'BtnRestaurar
         '
+        Me.BtnRestaurar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnRestaurar.Location = New System.Drawing.Point(597, 23)
         Me.BtnRestaurar.Name = "BtnRestaurar"
         Me.BtnRestaurar.Size = New System.Drawing.Size(133, 23)
@@ -141,8 +149,8 @@ Partial Class SelectLinks
         '
         'SelectLinks
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.BtnExpandir)
         Me.Controls.Add(Me.BtnContraer)
