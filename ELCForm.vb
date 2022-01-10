@@ -18,45 +18,78 @@ Public Partial Class ELCForm
 	End Property
 	
 	Private Sub ELCForm_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-		If MainForm IsNot Nothing then
+		If MainForm IsNot Nothing Then
+
+			If MainForm.Config.Tema Then
+
+				Me.BackColor = Color.FromArgb(32, 33, 36)
+				Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+				Me.gbELCLink.ForeColor = Color.FromArgb(232, 234, 237)
+				Me.gbMEGAUrl.ForeColor = Color.FromArgb(232, 234, 237)
+
+				Me.txtELCUrl.BackColor = Color.FromArgb(52, 53, 56)
+				Me.txtExaminar.BackColor = Color.FromArgb(52, 53, 56)
+				Me.txtMegaURLs.BackColor = Color.FromArgb(52, 53, 56)
+
+				Me.txtELCUrl.ForeColor = Color.FromArgb(232, 234, 237)
+				Me.txtExaminar.ForeColor = Color.FromArgb(232, 234, 237)
+				Me.txtMegaURLs.ForeColor = Color.FromArgb(232, 234, 237)
+
+				Me.btnCerrar.BackColor = Color.FromArgb(52, 53, 56)
+				Me.btnCrearELC.BackColor = Color.FromArgb(52, 53, 56)
+				Me.btnExaminar.BackColor = Color.FromArgb(52, 53, 56)
+				Me.btnSaveFile.BackColor = Color.FromArgb(52, 53, 56)
+				Me.comboELCAccounts.BackColor = Color.FromArgb(52, 53, 56)
+
+				Me.btnCerrar.ForeColor = Color.FromArgb(232, 234, 237)
+				Me.btnCrearELC.ForeColor = Color.FromArgb(232, 234, 237)
+				Me.btnExaminar.ForeColor = Color.FromArgb(232, 234, 237)
+				Me.btnSaveFile.ForeColor = Color.FromArgb(232, 234, 237)
+				Me.comboELCAccounts.ForeColor = Color.FromArgb(232, 234, 237)
+
+
+
+			End If
+
 			Translate()
-			
-			Me.btnSaveFile.Enabled = False 
+
+			Me.btnSaveFile.Enabled = False
 			Me.btnExaminar.Enabled = False
-			
-			
-			dim AccountH As New ELCAccountHelper(MainForm.Config)
-			comboELCAccounts.DataSource = AccountH.GetAccounts.OrderBy(Function(c) c.Alias _
-				).Select(Function(c As ELCAccountHelper.Account) New With { _
-				.Url = c.URL, _
-				.AccountName = c.Alias} _
+
+
+			Dim AccountH As New ELCAccountHelper(MainForm.Config)
+			comboELCAccounts.DataSource = AccountH.GetAccounts.OrderBy(Function(c) c.Alias
+				).Select(Function(c As ELCAccountHelper.Account) New With {
+				.Url = c.URL,
+				.AccountName = c.Alias}
 				).ToList()
-			
+
 			comboELCAccounts.DisplayMember = "AccountName"
 			comboELCAccounts.ValueMember = "Url"
-			
+
 			Dim DefAccount As ELCAccountHelper.Account = AccountH.GetDefaultAccount
 			If DefAccount IsNot Nothing Then
-				comboELCAccounts.SelectedValue = DefAccount.Url
+				comboELCAccounts.SelectedValue = DefAccount.URL
 			End If
-			
+
 			AccountH.Dispose()
-			
+
 			If comboELCAccounts.Items.Count = 0 Then
-				MessageBox.Show(Language.GetText("No ELC accounts configured. Go to Configuration in order to add an ELC account"), _
-					Language.GetText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error) 
+				MessageBox.Show(Language.GetText("No ELC accounts configured. Go to Configuration in order to add an ELC account"),
+					Language.GetText("Error"), MessageBoxButtons.OK, MessageBoxIcon.Error)
 			End If
-			
+
 			bckELCGenerator = New BackgroundWorker
 			bckELCGenerator.WorkerSupportsCancellation = True
 			bckELCGenerator.RunWorkerAsync()
-			
-			
+
+
 			' Centramos la pantalla
 			' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right
 			Dim scr = Screen.FromPoint(Me.Location)
 			Me.Location = New Point(CInt((scr.WorkingArea.Right - Me.Width) / 2), CInt((scr.WorkingArea.Bottom - Me.Height) / 2))
-		End if
+		End If
 	End Sub	
 	
 	Private Sub Cerrando() Handles Me.FormClosed

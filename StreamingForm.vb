@@ -9,6 +9,31 @@ Public Class StreamingForm
     Private WithEvents bckActualizador As BackgroundWorker
 
     Private Sub StreamingForm_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+
+
+        If MainForm.Config.Tema Then
+
+            Me.BackColor = Color.FromArgb(32, 33, 36)
+            Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+            Me.GroupBox1.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox2.ForeColor = Color.FromArgb(188, 192, 195)
+            Me.GroupBox3.ForeColor = Color.FromArgb(188, 192, 195)
+
+            Me.btnCerrar.BackColor = Color.FromArgb(52, 53, 56)
+            Me.btnLanzarVLC.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.btnCerrar.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.btnLanzarVLC.ForeColor = Color.FromArgb(232, 234, 237)
+
+            Me.txtUrlMEGA.BackColor = Color.FromArgb(52, 53, 56)
+            Me.txtUrlStreaming.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.txtUrlMEGA.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtUrlStreaming.ForeColor = Color.FromArgb(232, 234, 237)
+
+        End If
+
         Translate()
 
         If Not Config.ServidorStreamingActivo Then

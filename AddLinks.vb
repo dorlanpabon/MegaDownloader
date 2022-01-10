@@ -9,6 +9,39 @@ Public Class AddLinks
 
     Private Sub AddLinks_Load(sender As Object, e As System.EventArgs) Handles Me.Load
 
+        If Main.Config.Tema Then
+
+            Me.BackColor = Color.FromArgb(32, 33, 36)
+            Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+            Me.txtLinks.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtNombre.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtPassword.BackColor = Color.FromArgb(48, 49, 52)
+            Me.txtRuta.BackColor = Color.FromArgb(48, 49, 52)
+
+            Me.txtLinks.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtNombre.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtPassword.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtRuta.ForeColor = Color.FromArgb(232, 234, 237)
+
+            Me.txtLinks.BorderStyle = BorderStyle.None
+            Me.txtNombre.BorderStyle = BorderStyle.None
+            Me.txtPassword.BorderStyle = BorderStyle.None
+            Me.txtRuta.BorderStyle = BorderStyle.None
+
+            Me.linkStegano.LinkColor = Color.DarkCyan
+            Me.LinkLabel1.LinkColor = Color.DarkCyan
+            Me.LinkLabel2.LinkColor = Color.DarkCyan
+
+            Me.btnAgregar.BackColor = Color.FromArgb(52, 53, 56)
+            Me.btnExaminar.BackColor = Color.FromArgb(52, 53, 56)
+            Me.btnWatchOnline.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.OpcionesPaquete.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.lblPassword.ForeColor = Color.FromArgb(232, 234, 237)
+
+
+        End If
 
         ' Centramos la pantalla
         ' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right

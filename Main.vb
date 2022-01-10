@@ -201,7 +201,10 @@ Public Class Main
             Me.MenuDescarga.BackColor = Color.FromArgb(52, 53, 56)
             Me.MenuMinimizado.BackColor = Color.FromArgb(52, 53, 56)
             Me.MenuPanel.BackColor = Color.FromArgb(52, 53, 56)
-            Me.MenuDescarga.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.MenuDescarga.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.MenuMinimizado.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.MenuPanel.ForeColor = Color.FromArgb(232, 234, 237)
 
             Me.BackColor = Color.FromArgb(32, 33, 36)
             Me.ForeColor = Color.FromArgb(188, 192, 195)

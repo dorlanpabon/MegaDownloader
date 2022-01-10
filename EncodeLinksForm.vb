@@ -5,24 +5,42 @@ Public Class EncodeLinksForm
 	Private ClosingForm As Boolean = False
 	Private WithEvents bckActualizador As BackgroundWorker
 	Public MainForm As Main
-	
-	
+
+
 	Private Sub EncodeLinksForm_Load(sender As Object, e As System.EventArgs) Handles Me.Load
+
+		If MainForm.Config.Tema Then
+
+			Me.BackColor = Color.FromArgb(32, 33, 36)
+			Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+			Me.GroupBox1.ForeColor = Color.FromArgb(232, 234, 237)
+			Me.GroupBox2.ForeColor = Color.FromArgb(232, 234, 237)
+
+			Me.txtEncodedLinks.BackColor = Color.FromArgb(52, 53, 56)
+			Me.txtOriginalLinks.BackColor = Color.FromArgb(52, 53, 56)
+			Me.Button1.BackColor = Color.FromArgb(52, 53, 56)
+
+			Me.txtEncodedLinks.ForeColor = Color.FromArgb(232, 234, 237)
+			Me.txtOriginalLinks.ForeColor = Color.FromArgb(232, 234, 237)
+
+		End If
+
 		txtEncodedLinks.Multiline = True
 		txtEncodedLinks.Text = ""
-		
+
 		Translate()
-		
+
 		bckActualizador = New BackgroundWorker
 		bckActualizador.WorkerSupportsCancellation = True
 		bckActualizador.RunWorkerAsync()
-		
+
 		' Centramos la pantalla
 		' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right
 		Dim scr = Screen.FromPoint(Me.Location)
 		Me.Location = New Point(CInt((scr.WorkingArea.Right - Me.Width) / 2), CInt((scr.WorkingArea.Bottom - Me.Height) / 2))
 	End Sub
-	
+
 	Private Sub Translate()
 		Me.Text = Language.GetText("Encode Url")
 		Me.Button1.Text = Language.GetText("Close")

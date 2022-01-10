@@ -30,6 +30,44 @@
 
         Private Sub ScreenLoad(sender As Object, e As System.EventArgs) Handles Me.Load
 
+            If MainForm.Config.Tema Then
+
+                Me.BackColor = Color.FromArgb(32, 33, 36)
+                Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+                Me.btCancel.BackColor = Color.FromArgb(52, 53, 56)
+                Me.btImageInput.BackColor = Color.FromArgb(52, 53, 56)
+                Me.btImageOutput.BackColor = Color.FromArgb(52, 53, 56)
+                Me.btSave.BackColor = Color.FromArgb(52, 53, 56)
+
+                Me.btCancel.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.btImageInput.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.btImageOutput.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.btSave.ForeColor = Color.FromArgb(232, 234, 237)
+
+                Me.gbImage.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.gbIntro.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.gbLinks.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.gbPassword.ForeColor = Color.FromArgb(232, 234, 237)
+
+
+                Me.txtImageInput.BackColor = Color.FromArgb(52, 53, 56)
+                Me.txtImageOutput.BackColor = Color.FromArgb(52, 53, 56)
+                Me.txtLinks.BackColor = Color.FromArgb(52, 53, 56)
+                Me.txtPassword.BackColor = Color.FromArgb(52, 53, 56)
+                Me.txtQuality.BackColor = Color.FromArgb(52, 53, 56)
+                Me.lbPasswordTxt.BackColor = Color.FromArgb(52, 53, 56)
+
+                Me.txtImageInput.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.txtImageOutput.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.txtLinks.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.txtPassword.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.txtQuality.ForeColor = Color.FromArgb(232, 234, 237)
+                Me.lbPasswordTxt.ForeColor = Color.FromArgb(232, 234, 237)
+
+                Me.helpStegano.LinkColor = Color.DarkCyan
+                Me.helpVisibleLinks.LinkColor = Color.DarkCyan
+            End If
             ' Centramos la pantalla
             ' http://stackoverflow.com/questions/7892090/how-to-set-winform-start-position-at-top-right
             Dim scr = Screen.FromPoint(Me.Location)

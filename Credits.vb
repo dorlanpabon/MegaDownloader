@@ -3,6 +3,20 @@
 
     Private Sub Credits_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         Translate()
+
+        Dim Config = New Configuracion
+
+        If Config.Tema Then
+
+            Me.BackColor = Color.FromArgb(32, 33, 36)
+            Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+            Me.lblTitle.LinkColor = Color.DarkCyan
+
+            Me.Button1.BackColor = Color.FromArgb(52, 53, 56)
+            Me.Button1.ForeColor = Color.FromArgb(232, 234, 237)
+
+        End If
     End Sub
 
     Private Sub Translate()

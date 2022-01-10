@@ -12,6 +12,38 @@
     Private Sub PropiedadesDescarga_Load(sender As Object, e As System.EventArgs) Handles Me.Load
         Translate()
 
+        Dim Config = New Configuracion
+        'Dark Theme
+        If Config.Tema Then
+
+            Me.BackColor = Color.FromArgb(32, 33, 36)
+            Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+            Me.btnCancelar.BackColor = Color.FromArgb(52, 53, 56)
+            Me.btnExaminar.BackColor = Color.FromArgb(52, 53, 56)
+            Me.btnGuardar.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.txtLimiteVelocidad.BackColor = Color.FromArgb(52, 53, 56)
+            Me.txtMD5.BackColor = Color.FromArgb(52, 53, 56)
+            Me.txtNombre.BackColor = Color.FromArgb(52, 53, 56)
+            Me.txtPassword.BackColor = Color.FromArgb(52, 53, 56)
+            Me.txtRuta.BackColor = Color.FromArgb(52, 53, 56)
+            Me.txtTamano.BackColor = Color.FromArgb(52, 53, 56)
+            Me.txtUrl.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.GroupBox1.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.GroupBox2.ForeColor = Color.FromArgb(232, 234, 237)
+
+            Me.txtLimiteVelocidad.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtMD5.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtNombre.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtPassword.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtRuta.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtTamano.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtUrl.ForeColor = Color.FromArgb(232, 234, 237)
+
+        End If
+
         txtNombre.Text = _Descarga.DescargaNombre
         If TypeOf (_Descarga) Is Fichero Then
             GroupBox1.Text = Language.GetText("File properties")

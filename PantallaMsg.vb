@@ -3,7 +3,15 @@
     Public TextoError As String
     Public MostrarCodificarEnlaces As Boolean = False
     Private Sub VerError_Load(sender As Object, e As System.EventArgs) Handles Me.Load
-    	
+
+        Dim Config = New Configuracion
+        If Config.Tema Then
+
+            Me.BackColor = Color.FromArgb(32, 33, 36)
+            Me.ForeColor = Color.FromArgb(188, 192, 195)
+
+        End If
+
         txtDatos.Multiline = True
         txtDatos.Text = (TextoError & "").Replace(vbNewLine, Environment.NewLine)
 
