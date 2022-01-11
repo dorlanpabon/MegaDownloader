@@ -42,6 +42,9 @@
             Me.txtTamano.ForeColor = Color.FromArgb(232, 234, 237)
             Me.txtUrl.ForeColor = Color.FromArgb(232, 234, 237)
 
+            Me.LinkLabel1.LinkColor = Color.DarkCyan
+            Me.LinkLabel2.LinkColor = Color.DarkCyan
+
         End If
 
         txtNombre.Text = _Descarga.DescargaNombre

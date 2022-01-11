@@ -27,6 +27,22 @@ Public Class SelectLinks
             Me.BackColor = Color.FromArgb(32, 33, 36)
             Me.ForeColor = Color.FromArgb(188, 192, 195)
 
+            Me.TreeView1.BackColor = Color.FromArgb(52, 53, 56)
+            Me.btnAgregar.BackColor = Color.FromArgb(52, 53, 56)
+            Me.BtnContraer.BackColor = Color.FromArgb(52, 53, 56)
+            Me.BtnDelete_all_nodes.BackColor = Color.FromArgb(52, 53, 56)
+            Me.BtnDelete_node.BackColor = Color.FromArgb(52, 53, 56)
+            Me.BtnExpandir.BackColor = Color.FromArgb(52, 53, 56)
+            Me.BtnRestaurar.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.TreeView1.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.btnAgregar.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.BtnContraer.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.BtnDelete_all_nodes.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.BtnDelete_node.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.BtnExpandir.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.BtnRestaurar.ForeColor = Color.FromArgb(232, 234, 237)
+
         End If
 
     End Sub

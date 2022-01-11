@@ -10,6 +10,16 @@
             Me.BackColor = Color.FromArgb(32, 33, 36)
             Me.ForeColor = Color.FromArgb(188, 192, 195)
 
+
+            Me.Button1.BackColor = Color.FromArgb(52, 53, 56)
+            Me.txtDatos.BackColor = Color.FromArgb(52, 53, 56)
+
+            Me.Button1.ForeColor = Color.FromArgb(232, 234, 237)
+            Me.txtDatos.ForeColor = Color.FromArgb(232, 234, 237)
+
+            Me.lklGenerarELC.LinkColor = Color.DarkCyan
+
+
         End If
 
         txtDatos.Multiline = True
