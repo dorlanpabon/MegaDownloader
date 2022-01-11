@@ -154,7 +154,7 @@ Partial Class Descompresor
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.gbEstado)
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(400, 250)

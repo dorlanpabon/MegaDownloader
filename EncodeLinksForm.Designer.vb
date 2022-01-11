@@ -109,7 +109,7 @@ Partial Class EncodeLinksForm
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Button1)
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MinimumSize = New System.Drawing.Size(650, 340)
         Me.Name = "EncodeLinksForm"
         Me.Text = "Información"

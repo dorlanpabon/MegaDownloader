@@ -245,7 +245,7 @@ Partial Class AddLinks
         Me.Controls.Add(Me.OpcionesPaquete)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(1500, 1500)
         Me.MinimizeBox = False

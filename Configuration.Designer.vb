@@ -117,7 +117,7 @@ Partial Class Configuration
         Me.lblStreamingPort = New System.Windows.Forms.Label()
         Me.chkStreamingServer = New System.Windows.Forms.CheckBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.ElcAccountControl = New MegaDownloader.ELCAccountControl()
+        Me.ElcAccountControl = New MegaD0wnloader.ELCAccountControl()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.ConexionGroup.SuspendLayout()
@@ -1194,7 +1194,7 @@ Partial Class Configuration
         Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.btnCancel)
         Me.HelpButton = True
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Configuration"
@@ -1320,7 +1320,7 @@ Partial Class Configuration
     Friend WithEvents txtVLCPath As System.Windows.Forms.TextBox
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
-    Friend WithEvents ElcAccountControl As MegaDownloader.ELCAccountControl
+    Friend WithEvents ElcAccountControl As MegaD0wnloader.ELCAccountControl
     Friend WithEvents txtStreamingPassword As System.Windows.Forms.TextBox
     Friend WithEvents lblStreamingPassword As System.Windows.Forms.Label
     Friend WithEvents chkCheckUpdates As System.Windows.Forms.CheckBox

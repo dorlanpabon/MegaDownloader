@@ -867,23 +867,23 @@ Public Class Main
                                      Try
                                          Dim Estado As Estado = ele.DescargaEstado()
                                          Select Case Estado
-                                             Case MegaDownloader.Estado.EnCola
+                                             Case MegaD0wnloader.Estado.EnCola
                                                  Return Language.GetText("In queue")
-                                             Case MegaDownloader.Estado.CreandoLocal
+                                             Case MegaD0wnloader.Estado.CreandoLocal
                                                  Return Language.GetText("Creating files")
-                                             Case MegaDownloader.Estado.Verificando
+                                             Case MegaD0wnloader.Estado.Verificando
                                                  Return Language.GetText("Verifying")
-                                             Case MegaDownloader.Estado.Erroneo
+                                             Case MegaD0wnloader.Estado.Erroneo
                                                  Return Language.GetText("Error capital leters")
-                                             Case MegaDownloader.Estado.Pausado
+                                             Case MegaD0wnloader.Estado.Pausado
                                                  Return Language.GetText("Paused")
-                                             Case MegaDownloader.Estado.Descomprimiendo
+                                             Case MegaD0wnloader.Estado.Descomprimiendo
                                                  Return Language.GetText("Extracting")
-                                             Case MegaDownloader.Estado.Descargando
+                                             Case MegaD0wnloader.Estado.Descargando
                                                  Return Language.GetText("Downloading")
-                                             Case MegaDownloader.Estado.ComprobandoMD5
+                                             Case MegaD0wnloader.Estado.ComprobandoMD5
                                                  Return Language.GetText("Hashing MD5")
-                                             Case MegaDownloader.Estado.Completado
+                                             Case MegaD0wnloader.Estado.Completado
                                                  Return Language.GetText("Completed")
                                              Case Else
                                                  Return "---"
@@ -2898,7 +2898,7 @@ Public Class Main
                 frmStegano.txtLinks.Text = msg.ToString.Trim
                 frmStegano.Show()
             Else
-                Dim frmStegano As Stegano.SteganoWizardSave = CType(frm, MegaDownloader.Stegano.SteganoWizardSave)
+                Dim frmStegano As Stegano.SteganoWizardSave = CType(frm, MegaD0wnloader.Stegano.SteganoWizardSave)
                 If String.IsNullOrEmpty(frmStegano.txtLinks.Text) Then
                     frmStegano.txtLinks.Text = msg.ToString.Trim
                 Else

@@ -157,7 +157,7 @@ Partial Class StreamingForm
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "StreamingForm"

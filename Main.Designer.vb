@@ -332,7 +332,7 @@ Partial Class Main
         'IconoMinimizado
         '
         Me.IconoMinimizado.ContextMenuStrip = Me.MenuMinimizado
-        Me.IconoMinimizado.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.IconoMinimizado.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.IconoMinimizado.Text = "NotifyIcon1"
         Me.IconoMinimizado.Visible = True
         '
@@ -475,7 +475,7 @@ Partial Class Main
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.ListaDescargas)
         Me.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MinimumSize = New System.Drawing.Size(410, 250)
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

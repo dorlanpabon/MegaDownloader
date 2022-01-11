@@ -103,7 +103,7 @@ Partial Class Credits
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.MegaDownloader.My.Resources.Resources.mega
+        Me.PictureBox1.Image = Global.MegaD0wnloader.My.Resources.Resources.mega
         Me.PictureBox1.Location = New System.Drawing.Point(15, 25)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(128, 84)
@@ -118,7 +118,7 @@ Partial Class Credits
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(325, 26)
         Me.Label2.TabIndex = 8
-        Me.Label2.Text = "MegaDownloader no está relacionado con Mega.co.nz - Todas las marcas y logos son " & _
+        Me.Label2.Text = "MegaDownloader no está relacionado con Mega.co.nz - Todas las marcas y logos son " &
     "propiedad de sus respectivos dueños."
         '
         'Credits
@@ -140,7 +140,7 @@ Partial Class Credits
         Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Credits"

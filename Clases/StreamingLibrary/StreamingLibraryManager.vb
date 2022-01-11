@@ -52,11 +52,11 @@ Public Class StreamingLibraryManager
         End If
 
 
-        MegaDownloader.IMDB.FillMissingFields(IMDB, Name, Poster, Description)
-        MegaDownloader.Allocine.FillMissingFields(Allocine, Name, Poster, Description)
-        MegaDownloader.Filmaffinity.FillMissingFields(Filmaffinity, Name, Poster, Description)
+		MegaD0wnloader.IMDB.FillMissingFields(IMDB, Name, Poster, Description)
+		MegaD0wnloader.Allocine.FillMissingFields(Allocine, Name, Poster, Description)
+		MegaD0wnloader.Filmaffinity.FillMissingFields(Filmaffinity, Name, Poster, Description)
 
-        Return AddElement(Name, Description, Comments, Poster, Link, LinkVisible, IMDB, Allocine, Filmaffinity)
+		Return AddElement(Name, Description, Comments, Poster, Link, LinkVisible, IMDB, Allocine, Filmaffinity)
     End Function
 	
 	Public Shared Function AddElement(Name As String, Description As String, Comments As String, Poster As String, Link As String, LinkVisible As Boolean, IMDB As String, Allocine As String, Filmaffinity As String) As LibraryElement

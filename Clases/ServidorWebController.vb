@@ -57,8 +57,8 @@
                 _WebServerStreaming = New HttpServer.HttpServer()
                 _WebServerStreaming.ServerName = "Streaming"
                 _WebServerStreaming.SessionCookieName = "Sd_session"
-                _WebServerStreaming.Add(New MegaDownloader.StreamingModule(Config))
-                _WebServerStreaming.Add(New MegaDownloader.StreamingLibraryModule(Downloader, Config))
+                _WebServerStreaming.Add(New MegaD0wnloader.StreamingModule(Config))
+                _WebServerStreaming.Add(New MegaD0wnloader.StreamingLibraryModule(Downloader, Config))
                 _WebServerStreaming.Start(System.Net.IPAddress.Any, Config.ServidorStreamingPuerto)
 
                 'Console.WriteLine("Server is loaded. Go to http://localhost:" & port & "/")

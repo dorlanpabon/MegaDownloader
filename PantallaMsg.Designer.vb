@@ -80,7 +80,7 @@ Partial Class PantallaMsg
         Me.Controls.Add(Me.chkCodificarEnlaces)
         Me.Controls.Add(Me.txtDatos)
         Me.Controls.Add(Me.Button1)
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.Name = "PantallaMsg"
         Me.Text = "Información"
         Me.ResumeLayout(False)

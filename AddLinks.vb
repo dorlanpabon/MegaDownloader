@@ -1,5 +1,5 @@
 ﻿Imports System.Text.RegularExpressions
-Imports MegaDownloader.URLProcessor
+Imports MegaD0wnloader.URLProcessor
 
 Public Class AddLinks
 

@@ -1,4 +1,5 @@
-﻿Imports System
+﻿Imports System.Resources
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -8,17 +9,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("MegaDownloader")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("MegaDownloader")> 
-<Assembly: AssemblyCopyright("Copyright ©  2015")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTitle("MegaD0wnloader")>
+<Assembly: AssemblyDescription("MegaD0wnloader")>
+<Assembly: AssemblyCompany("MegaD0wnloader")>
+<Assembly: AssemblyProduct("MegaD0wnloader")>
+<Assembly: AssemblyCopyright("Copyright ©  2022")>
+<Assembly: AssemblyTrademark("MegaD0wnloader")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("5625a750-acef-4a7d-afea-a663a0706802")> 
+<Assembly: Guid("e0ddbc87-c99e-436c-9f87-2c0992c2bd56")>
 
 ' Version information for an assembly consists of the following four values:
 '
@@ -31,5 +32,6 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("3.1.0.0")>
+<Assembly: AssemblyFileVersion("3.1.0.0")>
+<Assembly: NeutralResourcesLanguage("es")>

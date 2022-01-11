@@ -8,9 +8,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A90F87EA-BF31-4E9E-9ABB-EBF3D2964540}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>MegaDownloader.My.MyApplication</StartupObject>
-    <RootNamespace>MegaDownloader</RootNamespace>
-    <AssemblyName>MegaDownloader</AssemblyName>
+    <StartupObject>MegaD0wnloader.My.MyApplication</StartupObject>
+    <RootNamespace>MegaD0wnloader</RootNamespace>
+    <AssemblyName>MegaD0wnloader</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -20,6 +20,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,8 +32,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationVersion>3.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -43,7 +43,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>MegaDownloader.xml</DocumentationFile>
+    <DocumentationFile>MegaD0wnloader.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -56,7 +56,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>MegaDownloader.xml</DocumentationFile>
+    <DocumentationFile>MegaD0wnloader.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -84,7 +84,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug_MSD\</OutputPath>
-    <DocumentationFile>MegaDownloader.xml</DocumentationFile>
+    <DocumentationFile>MegaD0wnloader.xml</DocumentationFile>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -95,7 +95,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release_MSD|x86'">
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Release_MSD\</OutputPath>
-    <DocumentationFile>MegaDownloader.xml</DocumentationFile>
+    <DocumentationFile>MegaD0wnloader.xml</DocumentationFile>
     <Optimize>true</Optimize>
     <DebugType>None</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -104,6 +104,24 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
     <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
     <DefineConstants>MSD=true</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>6BD266FE51B79A60FB69996015CD8B7554877E8A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MegaD0wnloader.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">
@@ -275,6 +293,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -395,6 +414,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="MegaD0wnloader.pfx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -521,9 +541,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release $(ProjectDir)\resources\tools\mpress.exe -s -m -u  $(ProjectDir)$(OutDir)$(TargetFileName)
+    <PostBuildEvent>if $(ConfigurationName) == Release $(ProjectDir)\resources\tools\mpress.exe -s -m -u -b  $(ProjectDir)$(OutDir)$(TargetFileName)
 
-if $(ConfigurationName) == Release_MSD $(ProjectDir)\resources\tools\mpress.exe -s -m -u  $(ProjectDir)$(OutDir)$(TargetFileName)
+if $(ConfigurationName) == Release_MSD $(ProjectDir)\resources\tools\mpress.exe -s -m -u  -b $(ProjectDir)$(OutDir)$(TargetFileName)
 if $(ConfigurationName) == Release_MSD del "$(ProjectDir)Resources\Installer MSD\$(TargetFileName)"
 if $(ConfigurationName) == Release_MSD del "$(ProjectDir)Resources\Installer MSD\MegaSearchDesktop.exe"
 if $(ConfigurationName) == Release_MSD copy "$(ProjectDir)$(OutDir)$(TargetFileName)" "$(ProjectDir)Resources\Installer MSD"

@@ -282,9 +282,9 @@ Public Class StreamingLibraryModule
                     Dim Allocine As String = request.Param.Item("Allocine").Value
                     Dim Link As String = request.Param.Item("Link").Value
 
-                    MegaDownloader.IMDB.FillMissingFields(IMDB, Name, Poster, Desc)
-                    MegaDownloader.Allocine.FillMissingFields(Allocine, Name, Poster, Desc)
-                    MegaDownloader.Filmaffinity.FillMissingFields(Filmaffinity, Name, Poster, Desc)
+                    MegaD0wnloader.IMDB.FillMissingFields(IMDB, Name, Poster, Desc)
+                    MegaD0wnloader.Allocine.FillMissingFields(Allocine, Name, Poster, Desc)
+                    MegaD0wnloader.Filmaffinity.FillMissingFields(Filmaffinity, Name, Poster, Desc)
 
                     If IsNumeric(ID) Then
                         Dim Ele As LibraryElement = StreamingLibraryManager.ModifyElement( _

@@ -319,7 +319,7 @@
             Me.Controls.Add(Me.gbIntro)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
             Me.HelpButton = True
-            Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+            Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MaximizeBox = false
         Me.MinimizeBox = false
         Me.Name = "SteganoWizardSave"

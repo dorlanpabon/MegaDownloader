@@ -222,7 +222,7 @@ Partial Class ELCForm
         Me.Controls.Add(Me.btnCerrar)
         Me.Controls.Add(Me.gbELCLink)
         Me.Controls.Add(Me.gbMEGAUrl)
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MinimumSize = New System.Drawing.Size(500, 400)
         Me.Name = "ELCForm"
         Me.Text = "ELCForm"

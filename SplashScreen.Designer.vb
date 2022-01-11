@@ -41,7 +41,7 @@ Partial Class SplashScreen
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.MegaDownloader.My.Resources.Resources.mega
+        Me.PictureBox1.Image = Global.MegaD0wnloader.My.Resources.Resources.mega
         Me.PictureBox1.Location = New System.Drawing.Point(74, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(126, 83)
@@ -73,7 +73,7 @@ Partial Class SplashScreen
         Me.Controls.Add(Me.lblMsg)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Icon = Global.MegaDownloader.My.Resources.Resources.icono
+        Me.Icon = Global.MegaD0wnloader.My.Resources.Resources.icono
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "SplashScreen"
