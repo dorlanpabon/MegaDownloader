@@ -257,7 +257,8 @@ NOTĂ: Această opțiune nu este salvată, activează de fiecare dată când por
 Exemplu: calea implicită este pe ecran. Dorești să descarci într-o cale diferită.
 În loc de a adăuga 8 pachete și schimba calea de fiecare dată, el va aminti ultima configurație bună
 Reține că numele pachetului nu este amintit. Când aplicația se închide, această configurație se pierde.]]></Text>
-  <Text key="You have to restart the application for the language change to take effect"><![CDATA[Reporneștei aplicația pentru a schimba limba.]]></Text>
+	<Text key="You have to restart the application for the language change to take effect"><![CDATA[Reporneștei aplicația pentru a schimba limba.]]></Text>
+	<Text key="You have to restart the application for the Theme change to take effect"><![CDATA[Reporneștei aplicația pentru a schimba limba.]]></Text>
   <Text key="Please take into consideration the following"><![CDATA[Ia in considerare urmatoarele]]></Text>
   <Text key="Error, session expired"><![CDATA[Eroare, trebuie să te conectezi din nou: sesiunea a expirat.]]></Text>
   <Text key="Encode Url"><![CDATA[Codare URL]]></Text>

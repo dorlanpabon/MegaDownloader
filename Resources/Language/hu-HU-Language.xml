@@ -253,7 +253,8 @@ Megjegyzés: Ez az opció nem menthető, aktiválni kell minden indításkor az 
   <Text key="Save and use last conf explanation"><![CDATA[Ha aktiválja ezt az opciót, a hivatkozás hozzáadása képernyő emlékezni fog az utolsó használt konfigurációra az alkalmazás elindítása óta, ahelyett, hogy megmutassa az alapértelmezett beállításokat.
 Példa: Az alapértelmezett útvonal az Asztal. Azt akarod, hogy letöltsöni 8 csomagot és kihagyja az alapértelmezett letöltési utat.csak az első letöltésnél kell megváltoztatnod, és a többi 7 emlékezni fog a legutóbb használt beállításokra.
 Felhívjuk figyelmed, hogy amikor az alkalmazás bezárul, ez a konfiguráció is elvész.]]></Text>
-  <Text key="You have to restart the application for the language change to take effect"><![CDATA[A nyelvi változás életbe léptetéséhez újra kell indítani a programot.]]></Text>
+	<Text key="You have to restart the application for the language change to take effect"><![CDATA[A nyelvi változás életbe léptetéséhez újra kell indítani a programot.]]></Text>
+	<Text key="You have to restart the application for the theme change to take effect"><![CDATA[A nyelvi változás életbe léptetéséhez újra kell indítani a programot.]]></Text>
   <Text key="Please take into consideration the following"><![CDATA[Kérjük vedd figyelembe az alábbiakat:]]></Text>
   <Text key="Error, session expired"><![CDATA[Hiba történt, újra kell csatlakozni: a próbaidő lejárt.]]></Text>
   <Text key="Encode Url"><![CDATA[URL kódolás]]></Text>

@@ -292,6 +292,8 @@ Instead of adding 8 packages and changing the path each time, you will change it
 Please note that the package name is not remembered. When the application closes, this configuration is also lost.]]>
   </Text>
   <Text key="You have to restart the application for the language change to take effect"><![CDATA[You have to restart the application for the language change to take effect.]]></Text>
+
+  <Text key="You have to restart the application for the theme change to take effect"><![CDATA[You have to restart the application for the theme change to take effect.]]></Text>
   <Text key="Please take into consideration the following"><![CDATA[Please take into consideration the following]]></Text>
 
   <Text key="Error, session expired"><![CDATA[Error, you have to connect again: session expired.]]></Text>

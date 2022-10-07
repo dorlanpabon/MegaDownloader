@@ -273,7 +273,8 @@ Exemplo: seu diretório padrão é a Área de Trabalho. Você quer baixar 8 arqu
 Em vez de adicionar 8 arquivos e mudar o diretório sempre que adicioná-los, você precisará mudar apenas uma vez e os outros 7 se lembrarão da configuração.
 Por favor, observe que o nome do arquivo não é memorizado. Quando o aplicativo fecha, esta configuração é perdida.]]>
     </Text>
-    <Text key="You have to restart the application for the language change to take effect"><![CDATA[Você deve reiniciar o aplicativo para que a alteração de Idioma surta efeito.]]></Text>
+	  <Text key="You have to restart the application for the language change to take effect"><![CDATA[Você deve reiniciar o aplicativo para que a alteração de Idioma surta efeito.]]></Text>
+	  <Text key="You have to restart the application for the theme change to take effect"><![CDATA[Você deve reiniciar o aplicativo para que a alteração de Idioma surta efeito.]]></Text>
     <Text key="Please take into consideration the following"><![CDATA[Por favor, leve em consideração o seguinte]]></Text>
     <Text key="Error, session expired"><![CDATA[Erro, você deve se conectar novamente: sessão expirada.]]></Text>
     <Text key="Encode Url"><![CDATA[Codificar links]]></Text>

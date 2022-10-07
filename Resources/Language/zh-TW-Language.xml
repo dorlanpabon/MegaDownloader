@@ -257,7 +257,8 @@ B 是同行下載數。]]></Text>
 範例： 您的預設路徑是桌面。您想要下載 8 個封裝並將其保留在不同的路徑。
 你只需更改一次設定，一旦變更後，其餘7個會自動記住最後使用的設定，而不是分別增加修改 8 個封裝路徑。
 請注意封裝檔案名稱將不會被記憶。當應用程式關閉後，此設定將遺失。]]></Text>
-  <Text key="You have to restart the application for the language change to take effect"><![CDATA[你必須重新啟動本程式以套用語言檔變更。]]></Text>
+	<Text key="You have to restart the application for the language change to take effect"><![CDATA[你必須重新啟動本程式以套用語言檔變更。]]></Text>
+	<Text key="You have to restart the application for the theme change to take effect"><![CDATA[你必須重新啟動本程式以套用語言檔變更。]]></Text>
   <Text key="Please take into consideration the following"><![CDATA[請慎思以下]]></Text>
   <Text key="Error, session expired"><![CDATA[錯誤，你必須再次連接：工作階段過期。]]></Text>
   <Text key="Encode Url"><![CDATA[加密網址]]></Text>

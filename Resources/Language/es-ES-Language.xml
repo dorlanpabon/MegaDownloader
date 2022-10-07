@@ -286,7 +286,8 @@ NOTA: Esta opción NO se guarda, por lo que hay que activarla cada vez que se in
 Ejemplo: la ruta por defecto es el escritorio. Sin embargo quieres bajarte 8 temporadas de una serie y dejarla en una ruta distinta. En vez de agregar 8 paquetes y cambiar la ruta cada vez, con esta opción se cambia una vez y las siguientes 7 copian la configuración de la primera. 
 Hay que tener en cuenta que el nombre del paquete no se mantiene en ningún caso, y cuando se cierra el programa se pierde la última configuración usada.]]>
   </Text>
-  <Text key="You have to restart the application for the language change to take effect"><![CDATA[Debe reiniciar la aplicación para que los cambios de idioma surtan efecto.]]></Text>
+	<Text key="You have to restart the application for the language change to take effect"><![CDATA[Debe reiniciar la aplicación para que los cambios de idioma surtan efecto.]]></Text>
+	<Text key="You have to restart the application for the theme change to take effect"><![CDATA[Debe reiniciar la aplicación para que los cambios de tema surtan efecto.]]></Text>
   <Text key="Please take into consideration the following"><![CDATA[Por favor tenga en cuenta lo siguiente]]></Text>
 
   <Text key="Accounts"><![CDATA[Cuentas]]></Text>

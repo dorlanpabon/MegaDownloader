@@ -125,7 +125,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto">
-      <HintPath>..\BouncyCastle.Crypto.dll</HintPath>
+      <HintPath>Resources\DLLs\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="F5Lib">
       <HintPath>Resources\DLLs\F5Lib.dll</HintPath>

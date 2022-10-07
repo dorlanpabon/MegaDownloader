@@ -257,7 +257,8 @@ B 是同行下载数。]]></Text>
 范例： 您的默认路径是桌面。您想要下载 8 个封装并将其保留在不同的路径。
 你只需更改一次设定，一旦变更后，其余7个会自动记住最后使用的设定，而不是分别增加修改 8 个封装路径。
 请注意封装文件名称将不会被记忆。当应用程序关闭后，此设定将遗失。]]></Text>
-  <Text key="You have to restart the application for the language change to take effect"><![CDATA[你必须重新启动本程序以套用语言包变更。]]></Text>
+	<Text key="You have to restart the application for the language change to take effect"><![CDATA[你必须重新启动本程序以套用语言包变更。]]></Text>
+	<Text key="You have to restart the application for the theme change to take effect"><![CDATA[你必须重新启动本程序以套用语言包变更。]]></Text>
   <Text key="Please take into consideration the following"><![CDATA[请慎思以下]]></Text>
   <Text key="Error, session expired"><![CDATA[错误，你必须再次连接：工作阶段过期。]]></Text>
   <Text key="Encode Url"><![CDATA[加密网址]]></Text>

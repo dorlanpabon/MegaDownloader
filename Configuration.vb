@@ -567,7 +567,7 @@ Public Class Configuration
         Config.LimiteVelocidadKBs = LimiteVelocidad
 
 
-        Config.Tema = chkTema.Checked
+
 
         Config.ServidorStreamingActivo = chkStreamingServer.Checked
         Config.ServidorStreamingPuerto = servidorStreamingPuerto
@@ -583,9 +583,15 @@ Public Class Configuration
         ElcAccountControl.SaveToConfig(Config)
 
         Dim AvisoReiniciarAppParaIdioma As Boolean = False
+        Dim AvisoReiniciarAppParaTema As Boolean = False
         If Language.IsValidLanguageCode(CStr(comboIdiomas.SelectedValue)) Then
             AvisoReiniciarAppParaIdioma = Config.Idioma <> CStr(comboIdiomas.SelectedValue)
             Config.Idioma = CStr(comboIdiomas.SelectedValue)
+        End If
+
+        If Config.Tema <> chkTema.Checked Then
+            AvisoReiniciarAppParaTema = True
+            Config.Tema = chkTema.Checked
         End If
 
 
@@ -635,6 +641,9 @@ Public Class Configuration
         Dim avisos As String = ""
         If AvisoReiniciarAppParaIdioma Then
             avisos &= vbNewLine & " * " & Language.GetText("You have to restart the application for the language change to take effect")
+        End If
+        If AvisoReiniciarAppParaTema Then
+            avisos &= vbNewLine & " * " & Language.GetText("You have to restart the application for the theme change to take effect")
         End If
         If AvisoUsuarioAnonimo Then
             ' Cuando sirva el user/password para descargar, mostraremos este mensaje

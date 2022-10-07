@@ -184,6 +184,7 @@
   NOTE: Questa opzione non viene salvato, è necessario attivare ogni volta che si avvia l'applicazione. In questo modo, il computer non si spegne per caso quando un download finisce.]]></Text>
   <Text key="Save and use last conf explanation"><![CDATA[Se si attiva questa opzione, la schermata di inserire un link ricorderà l'ultima configurazione usata dall'inizio della domanda, invece di mostrare la configurazione predefinita Esempio:. Tuo percorso predefinito è il desktop. 8 confezioni che si desidera scaricare e lasciarlo in un path.Instead diversa aggiunta di 8 pacchetti e modificando il modo in cui ogni volta che si cambia uno e gli altri 7 si ricorderà l'ultima nota utilizzata configuration.Please che il nome del pacchetto non viene ricordato. Quando l'applicazione si chiude, questa configurazione si perde anche.]]></Text>
   <Text key="You have to restart the application for the language change to take effect"><![CDATA[È necessario riavviare l'applicazione per la modifica della lingua abbia effetto.]]></Text>
+	<Text key="You have to restart the application for the theme change to take effect"><![CDATA[È necessario riavviare l'applicazione per la modifica della lingua abbia effetto.]]></Text>
   <Text key="Please take into consideration the following"><![CDATA[Si prega di tenere presente quanto segue]]></Text>
   <Text key="Error, session expired"><![CDATA[Di errore, è necessario eseguire nuovamente il login: sessione è scaduta.]]></Text>
   <Text key="About"><![CDATA[Chi MegaDownloader]]></Text>
