@@ -1,6 +1,6 @@
 # MegaDownloader
 Bienvenido/a al repositorio de Megadownloader, una herramienta diseñada en VB.NET para facilitar la descarga de archivos desde Mega de manera rápida y sencilla. Este proyecto ha sido posible gracias al esfuerzo y dedicación de su creador y sus demas colaboradores, Andres Soliño (andres.age@gmail.com), a quien estamos profundamente agradecidos.
-
+Canal: https://www.youtube.com/channel/UCYWuUyGNDFLE33O35RlQdgQ
 # Requisitos Previos
 Asegúrate de tener instalados los siguientes requisitos previos:
 Visual Studio 2019 con soporte para VB.NET.
